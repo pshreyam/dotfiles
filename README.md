@@ -17,3 +17,9 @@ Then checkout to the current config using,
 ```
 dotfiles checkout
 ```
+
+Additionally, set the following flag to the repository to avoid showing untracked file,
+
+```
+config config --local status.showUntrackedFiles no
+```
