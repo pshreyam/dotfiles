@@ -123,20 +123,8 @@ PATH="$PATH:$JAVA_HOME/bin"
 export JAVA_HOME
 export PATH
 
-ANDROID_HOME="/home/shreyam/Android/Sdk"
-PATH="$PATH:$ANDROID_HOME"
-export ANDROID_HOME
-export PATH
-
-PATH="$PATH:/snap/flutter/current"
-export PATH
-
 EDITOR="/snap/bin/nvim"
 export EDITOR
-
-# Overriding PS1
-PS1='${debian_chroot:+($debian_chroot)}\[\033[0;31m\][ \[\033[01;32m\]\u\[\033[00m\] in \[\033[01;34m\]\W\[\033[0;31m\] ] \[\033[0;31m\]\$\[\033[00m\] '
-export PS1
 
 shopt -s autocd
 
