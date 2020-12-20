@@ -126,6 +126,6 @@ export PATH
 EDITOR="/snap/bin/nvim"
 export EDITOR
 
-shopt -s autocd
+#shopt -s autocd
 
 export TERM=xterm-256color

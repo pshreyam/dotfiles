@@ -21,7 +21,7 @@ syntax enable
 set laststatus=2
 set background=dark
  
-"set colorcolumn=80
+set colorcolumn=80
 set mouse=a
 set cursorline
 set number relativenumber
