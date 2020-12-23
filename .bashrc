@@ -123,6 +123,8 @@ PATH="$PATH:$JAVA_HOME/bin"
 export JAVA_HOME
 export PATH
 
+export PATH="$PATH:$HOME/Downloads/flutter/bin"
+
 EDITOR="/snap/bin/nvim"
 export EDITOR
 
@@ -131,3 +133,5 @@ export EDITOR
 export TERM=xterm-256color
 
 export TERMINAL="/usr/bin/terminator"
+
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"

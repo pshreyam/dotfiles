@@ -2,16 +2,18 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'mcchrish/nnn.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
+Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
+Plug 'overcache/NeoSolarized'
 Plug 'itchyny/vim-gitbranch'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
 "colorscheme dracula
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme NeoSolarized
 
 set fileformat=unix
 set encoding=utf-8
@@ -43,6 +45,17 @@ set splitbelow
 set splitright
 
 let g:python3_host_prog = '/usr/bin/python3'
+
+set termguicolors
+
+"solarized config
+let g:neosolarized_contrast = "high"
+let g:neosolarized_visibility = "high"
+let g:neosolarized_vertSplitBgTrans = 1
+let g:neosolarized_bold = 1
+let g:neosolarized_underline = 1
+let g:neosolarized_italic = 0
+let g:neosolarized_termBoldAsBright = 1
 
 "configure the status bar
 let g:lightline = {

@@ -17,3 +17,5 @@ alias dotgraph='dotfiles log --graph --full-history --all --color --pretty=forma
 
 # Get coloured output
 alias diff="diff --color=auto"
+
+alias cfb="nvim $HOME/.config/bspwm/bspwmrc"

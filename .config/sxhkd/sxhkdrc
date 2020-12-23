@@ -7,8 +7,8 @@ super + Return
 	terminator
 
 # open webbrowser
-super + {b, c} 
-    {firefox, google-chrome} 
+super + {b, c, v} 
+    {firefox, google-chrome, brave} 
 
 # program launcher
 super + @space
