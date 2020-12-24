@@ -3,7 +3,7 @@ autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n %{$fg[blue]%}in %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%} ➤%b "
 
 setopt autocd              # change directory just by typing its name
-#setopt correct            # auto correct mistakes
+setopt correct            # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
 setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
 setopt nonomatch           # hide error message if there is no match for the pattern
@@ -87,18 +87,11 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Custom Config Starts
 
-JAVA_HOME="/usr/lib/jvm/jdk-15.0.1"
-PATH="$PATH:$JAVA_HOME/bin"
-export JAVA_HOME
-export PATH
-
-export PATH="$PATH:$HOME/Downloads/flutter/bin"
-
-EDITOR="/snap/bin/nvim"
-export EDITOR
-
-export TERM=xterm-256color
-
+export JAVA_HOME="/usr/lib/jvm/jdk-15.0.1"
+export EDITOR="/snap/bin/nvim"
+export TERM="xterm-256color"
 export TERMINAL="/usr/bin/terminator"
-
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+
+export PATH="$PATH:$JAVA_HOME/bin"
+export PATH="$PATH:$HOME/Downloads/flutter/bin"
