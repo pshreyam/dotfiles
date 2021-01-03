@@ -3,7 +3,7 @@
 sxhkd &
 compton &
 
-bspc monitor -d personal code timepass
+bspc monitor -d personal code timepass "no idea"
 
 bspc config border_width         2
 bspc config window_gap           4

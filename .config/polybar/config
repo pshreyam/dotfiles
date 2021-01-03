@@ -330,6 +330,7 @@ reverse-scroll = false
 ws-icon-0 = personal;♚
 ws-icon-1 = code;♛
 ws-icon-2 = timepass;♜
+ws-icon-3 = no idea;♟
 ws-icon-default = ♟
 
 format = <label-state> <label-mode>

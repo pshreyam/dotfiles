@@ -34,9 +34,9 @@ alias history="history 0"
 autoload -Uz compinit
 compinit
 
-# Load aliases from zsh_aliases file if present
-if [ -e ~/.zsh_aliases ]; then
-    . ~/.zsh_aliases
+# Load aliases from ~/.aliases file if present
+if [ -e ~/.aliases ]; then
+    . ~/.aliases
 fi
 
 # Some custom configs
