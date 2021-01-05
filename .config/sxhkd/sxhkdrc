@@ -20,7 +20,7 @@ super + Escape
 
 # lock screen
 super + alt + a
-    i3lock -i $HOME/Pictures/lock.png
+    light-locker-command -l
 
 #
 # bspwm hotkeys
@@ -134,11 +134,11 @@ super + {Left,Down,Up,Right}
 
 # Increase/Decrease Volume
 XF86Audio{Raise,Lower}Volume
-    amixer -D pulse sset Master {5%+, 5%-}
+    amixer sset Master {5%+, 5%-}
 
 # Toggle mute
 XF86AudioMute
-    amixer -D pulse set Master 1+ toggle
+    amixer set Master 1+ toggle
 
 #
 # brightness controls

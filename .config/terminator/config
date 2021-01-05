@@ -1,10 +1,11 @@
 [global_config]
-    borderless = true
+  borderless = True
 [keybindings]
 [profiles]
   [[default]]
     background_color = "#282828"
     background_darkness = 0.9
+    background_type = transparent
     cursor_color = "#aaaaaa"
     font = Fira Code Light 14
     foreground_color = "#ebdbb2"
