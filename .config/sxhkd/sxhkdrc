@@ -7,8 +7,8 @@ super + Return
 	terminator
 
 # open webbrowser
-super + {b, c, v} 
-    {firefox, google-chrome, brave} 
+super + v 
+    firefox
 
 # program launcher
 super + @space
@@ -20,7 +20,7 @@ super + Escape
 
 # lock screen
 super + alt + a
-    i3lock -i $HOME/Pictures/Wallpapers/Aesthetic\ Scenery\ 247.png
+    i3lock -i $HOME/Pictures/lock.png
 
 #
 # bspwm hotkeys
@@ -153,4 +153,3 @@ XF86MonBrightnessUp
 #
 # other shortcuts
 #
-

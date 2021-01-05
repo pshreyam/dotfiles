@@ -12,8 +12,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 "colorscheme dracula
-"colorscheme gruvbox
-colorscheme NeoSolarized
+colorscheme gruvbox
+"colorscheme NeoSolarized
 
 set fileformat=unix
 set encoding=utf-8

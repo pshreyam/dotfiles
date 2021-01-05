@@ -22,9 +22,9 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a discord desktop="timepass" state=tiled
 bspc rule -a jetbrains-studio desktop="code" state=floating
-bspc rule -a Code desktop="code" state=tiled
+bspc rule -a code-oss desktop="code" state=tiled
 
-feh --bg-fill $HOME/Pictures/BigSurLatestWalls/The-Cliffs-8-dragged.jpg
+feh --bg-fill $HOME/Pictures/Wallpapers/The-Desert-5-dragged.jpg
 
 xsetroot -cursor_name left_ptr &
 

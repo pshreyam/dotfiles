@@ -1,4 +1,5 @@
 [global_config]
+    borderless = true
 [keybindings]
 [profiles]
   [[default]]
