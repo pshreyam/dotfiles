@@ -13,4 +13,5 @@ if [ -f ~/.aliases ]; then
 fi
 
 export TERM="xterm-256color"
+export TERMINAL="/usr/bin/terminator"
 export EDITOR="/snap/bin/nvim"
