@@ -21,5 +21,5 @@ dotfiles checkout
 Additionally, set the following flag to the repository to avoid showing untracked file,
 
 ```
-config config --local status.showUntrackedFiles no
+dotfiles config --local status.showUntrackedFiles no
 ```
