@@ -2,9 +2,10 @@
 
 sxhkd &
 tint2 &
-compton &
+picom &
 # $HOME/.config/polybar/launch.sh &
 /usr/bin/light-locker &
+nm-applet &
 
 bspc monitor -d personal code timepass "no idea"
 
