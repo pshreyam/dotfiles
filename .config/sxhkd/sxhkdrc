@@ -137,5 +137,15 @@ XF86Audio{Raise,Lower}Volume
     amixer sset Master {5%+, 5%-}
 
 #
+# brightness controls
+#
+
+XF86MonBrightnessDown
+    sudo xbacklight -dec 10
+
+XF86MonBrightnessUp
+    sudo xbacklight -inc 10
+
+#
 # other shortcuts
 #

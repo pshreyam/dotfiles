@@ -27,6 +27,7 @@ bspc rule -a Screenkey manage=off
 bspc rule -a discord desktop="timepass" state=tiled
 bspc rule -a jetbrains-studio desktop="code" state=floating
 bspc rule -a code-oss desktop="code" state=tiled
+bspc rule -a tint2 layer=below
 
 feh --bg-fill $HOME/Pictures/Wallpapers/The-Desert-5-dragged.jpg
 
