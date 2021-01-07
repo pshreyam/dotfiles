@@ -1,7 +1,7 @@
 # Custom Prompt
 autoload -U colors && colors
 
-PROMPT="%F{47}[%f%F{69}%n%f @ %F{171}%~%f%F{47}]%f$ "
+PROMPT="%F{47}[%f%F{69}%n%f : %F{171}%~%f%F{47}]%f$ "
 
 setopt histignorealldups sharehistory
 

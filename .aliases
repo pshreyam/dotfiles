@@ -1,5 +1,5 @@
 # Python aliases
-alias vc='virtualenv venv'
+alias vc='python3 -m venv venv'
 alias va='source ./venv/bin/activate'
 alias vd='deactivate'
 
@@ -17,3 +17,5 @@ alias dotgraph='dotfiles log --graph --full-history --all --color --pretty=forma
 
 # Get coloured output
 alias diff="diff --color=auto"
+
+alias ping="ping -c 4"
