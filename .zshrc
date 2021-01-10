@@ -1,7 +1,8 @@
 # Custom Prompt
 autoload -U colors && colors
 
-PROMPT="%F{47}[%f%F{69}%n%f : %F{171}%~%f%F{47}]%f$ "
+# add %{%G<character>%} around non-ASCII characters
+PROMPT="%B%F{47}[%f%F{69}%n%f : %F{171}%~%f%F{47}]%f %F{226}%{%G❯%}%f%b "
 
 setopt histignorealldups sharehistory
 
@@ -13,6 +14,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+unsetopt prompt_cr prompt_sp
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
