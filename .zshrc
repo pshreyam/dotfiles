@@ -2,7 +2,7 @@
 autoload -U colors && colors
 
 # add %{%G<character>%} around non-ASCII characters
-PROMPT="%B%F{47}[%f%F{69}%n%f : %F{171}%~%f%F{47}]%f %F{226}%{%G❯%}%f%b "
+PROMPT="%B%F{69}%n%f : %F{171}%~%f %F{226}%{%G❯%}%f%b "
 
 setopt histignorealldups sharehistory
 
