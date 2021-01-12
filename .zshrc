@@ -2,7 +2,7 @@
 autoload -U colors && colors
 
 # add %{%G<character>%} around non-ASCII characters
-PROMPT="%B%F{69}%n%f : %F{171}%~%f %F{226}%{%G❯%}%f%b "
+PROMPT="%B%F{69}%n%f : %F{171}%~%f %F{226}%{%G➼ %}%f%b "
 
 setopt histignorealldups sharehistory
 
@@ -86,6 +86,7 @@ export EDITOR="/snap/bin/nvim"
 export TERM="xterm-256color"
 export TERMINAL="/usr/bin/terminator"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+export LC_CTYPE="en_US.UTF-8"
 
 export PATH="$PATH:$JAVA_HOME/bin"
 export PATH="$PATH:$HOME/Downloads/flutter/bin"
