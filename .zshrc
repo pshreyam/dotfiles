@@ -14,6 +14,11 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+# Set RPROMPT with git branch name
+# setopt prompt_subst
+# . ~/.scripts/git-prompt.sh
+# export RPROMPT=$'$(__git_ps1 "%s")'
+
 unsetopt prompt_cr prompt_sp
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
