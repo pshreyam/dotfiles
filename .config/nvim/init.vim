@@ -8,11 +8,13 @@ Plug 'dracula/vim'
 Plug 'overcache/NeoSolarized'
 Plug 'itchyny/vim-gitbranch'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'drewtempelmeyer/palenight.vim'
 
 call plug#end()
 
 "colorscheme dracula
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme palenight
 "colorscheme NeoSolarized
 
 set fileformat=unix

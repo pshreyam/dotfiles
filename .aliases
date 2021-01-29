@@ -16,3 +16,5 @@ alias dotgraph='dotfiles log --graph --full-history --all --color --pretty=forma
 alias diff="diff --color=auto"
 
 alias ping="ping -c 4"
+
+alias pipenv="/usr/bin/python -m pipenv"
