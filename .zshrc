@@ -87,7 +87,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Custom Config Starts
 
 export JAVA_HOME="/usr/lib/jvm/jdk-15.0.1"
-export EDITOR="/snap/bin/nvim"
+export EDITOR="/usr/bin/nvim"
 export TERM="xterm-256color"
 export TERMINAL="/usr/bin/terminator"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
