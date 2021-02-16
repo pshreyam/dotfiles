@@ -86,12 +86,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Custom Config Starts
 
-export JAVA_HOME="/usr/lib/jvm/jdk-15.0.1"
 export EDITOR="/usr/bin/nvim"
 export TERM="xterm-256color"
 export TERMINAL="/usr/bin/terminator"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export LC_CTYPE="en_US.UTF-8"
-
-export PATH="$PATH:$JAVA_HOME/bin"
-export PATH="$PATH:$HOME/Downloads/flutter/bin"
