@@ -2,6 +2,7 @@
 alias vc='python3 -m venv venv'
 alias va='source ./venv/bin/activate'
 alias vd='deactivate'
+alias pipenv="/usr/bin/python -m pipenv"
 
 # Interactive command aliases
 alias mv='mv -in'
@@ -15,6 +16,9 @@ alias dotgraph='dotfiles log --graph --full-history --all --color --pretty=forma
 # Get coloured output
 alias diff="diff --color=auto"
 
+# restrict ping count to 4
 alias ping="ping -c 4"
 
-alias pipenv="/usr/bin/python -m pipenv"
+# power options
+alias po='poweroff'
+alias lo='bspc quit' 
