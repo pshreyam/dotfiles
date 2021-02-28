@@ -13,8 +13,8 @@ Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
 "colorscheme dracula
-"colorscheme gruvbox
-colorscheme palenight
+colorscheme gruvbox
+"colorscheme palenight
 "colorscheme NeoSolarized
 
 set fileformat=unix

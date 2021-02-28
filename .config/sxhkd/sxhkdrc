@@ -20,7 +20,7 @@ super + Escape
 
 # lock screen
 super + alt + a
-    i3lock -i ~/Pictures/lockscreen.png
+    i3lock -i ~/Pictures/Wallpapers/Lock.png
 
 #
 # bspwm hotkeys

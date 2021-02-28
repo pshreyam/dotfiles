@@ -3,6 +3,8 @@ alias vc='python3 -m venv venv'
 alias va='source ./venv/bin/activate'
 alias vd='deactivate'
 alias pipenv="/usr/bin/python -m pipenv"
+alias up_pip="pip install --upgrade pip"
+alias vca="vc && va && up_pip"
 
 # Interactive command aliases
 alias mv='mv -in'
