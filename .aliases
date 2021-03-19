@@ -5,6 +5,7 @@ alias vd='deactivate'
 alias pipenv="/usr/bin/python -m pipenv"
 alias up_pip="pip install --upgrade pip"
 alias vca="vc && va && up_pip"
+alias vcai="vca && pip install -r requirements.txt"
 
 # Interactive command aliases
 alias mv='mv -in'

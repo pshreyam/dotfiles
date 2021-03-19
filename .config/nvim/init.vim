@@ -4,18 +4,14 @@ Plug 'mcchrish/nnn.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'morhetz/gruvbox'
-Plug 'dracula/vim'
-Plug 'overcache/NeoSolarized'
 Plug 'itchyny/vim-gitbranch'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'drewtempelmeyer/palenight.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
-"colorscheme dracula
 colorscheme gruvbox
-"colorscheme palenight
-"colorscheme NeoSolarized
 
 set fileformat=unix
 set encoding=utf-8
@@ -45,6 +41,10 @@ set noshowmode
 "set new splits to open below or right to the previous files
 set splitbelow
 set splitright
+
+"enable folding
+set foldmethod=indent
+set foldlevel=99
 
 let g:python3_host_prog = '/usr/bin/python3'
 
