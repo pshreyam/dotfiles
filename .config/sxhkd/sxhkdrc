@@ -20,7 +20,29 @@ super + Escape
 
 # lock screen
 super + alt + a
-    i3lock -i ~/Pictures/Wallpapers/Lock.png
+    i3lock -i ~/Pictures/wallpapers/1167578.png
+
+#
+# screenshot
+#
+
+# save entire screen
+@Print
+    scrot '%F_%T_$wx$h.png' -e 'mv $f ~/Pictures/ss/'
+
+# copy to clipboard entire screen
+ctrl + @Print
+    scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
+# save selected area
+shift + @Print
+    scrot -s '%F_%T_$wx$h.png' -e 'mv $f ~/Pictures/ss/'
+
+# copy to clipboard selected area
+ctrl + shift + @Print
+    scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
+# add similarly; use -u for windows (not required now)
 
 #
 # bspwm hotkeys
@@ -132,20 +154,22 @@ super + {Left,Down,Up,Right}
 # volume controls
 #
 
-# Increase/Decrease Volume
 XF86Audio{Raise,Lower}Volume
     amixer sset Master {5%+, 5%-}
+
+XF86AudioMute
+    amixer set Master toggle
 
 #
 # brightness controls
 #
 
-XF86MonBrightnessDown
-    sudo xbacklight -dec 10
-
-XF86MonBrightnessUp
-    sudo xbacklight -inc 10
+XF86MonBrightness{Down,Up}
+    xbacklight {-dec,-inc} 10
 
 #
-# other shortcuts
+# player controls
 #
+
+XF86Audio{Play,Prev,Next,Stop}
+    playerctl {play-pause,previous,next,stop}
