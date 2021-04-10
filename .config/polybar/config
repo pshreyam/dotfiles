@@ -1,8 +1,6 @@
 [colors]
-;background = ${xrdb:color0:#222}
-background = #050508
+background = #cc050508
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
@@ -31,26 +29,31 @@ border-color = #00000000
 padding-left = 2
 padding-right = 2
 
-module-margin-left = 2
-module-margin-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
 ;; Using *-font as n will use font-(n-1)
 ;; font-N = <fontconfig pattern>;<vertical offset>
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
-font-3 = NotoColorEmoji:fontformat=truetype:scale=9:antialias=false;2
-font-4 = FontAwesome5Free:style=Regular:size=15;4
-font-5 = FontAwesome5Brands:style=Regular:size=15;4
-font-6 = FontAwesome5Free:style=Solid:size=15;4
+;; I've included fonts that not used now
+font-0 = FiraCode-SemiBold.ttf: Fira Code,Fira Code SemiBold:style=SemiBold,Regular:pixelsize=9;3 
+font-1 = fixed:pixelsize=10;1
+font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-3 = siji:pixelsize=10;1
+font-4 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;2
+font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=12;2 
+font-6 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=12;2
+font-7 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=12;2
+font-8 = Nepali:style=NORMAL:size:12;2
+font-9 = PCS NEPALI:style=Normal:size:12;2
+
 
 modules-left = xworkspaces xwindow
 modules-center= date
-modules-right = pulseaudio memory cpu wlan eth battery network
+modules-right = pulseaudio network memory cpu battery
 
 tray-position = right
 tray-padding = 2
-tray-background = #0063ff
+tray-background = #440063ff
 
 wm-restack = bspwm
 
@@ -83,18 +86,17 @@ click-left = "/usr/bin/terminator"
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date = 
-date-alt = " %b %d %Y"
+date-alt = " %b %d, %Y"
 
 time = %A, %I:%M %p
-time-alt = %I:%M:%S
+time-alt = | %I:%M:%S
 
-format-prefix = 🧭
+format-prefix = 🕖
 format-prefix-foreground = ${colors.foreground-alt}
 
-label-font = 3
 label = %date% %time%
 
 [module/network]
@@ -127,8 +129,8 @@ bar-volume-foreground-3 = #55aa55
 bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = true
-bar-volume-indicator = | 
+bar-volume-gradient = false
+bar-volume-indicator =  
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
 bar-volume-fill-font = 2
@@ -142,33 +144,35 @@ battery = BAT0
 adapter = AC
 full-at = 100
 
-format-charging-prefix = "🔌 "
+format-charging-prefix = " "
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #34eb46
 
-format-discharging-prefix = "🫀  "
+format-discharging-prefix =
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = #d42649 
 
-format-full-prefix = "🔋 "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full-prefix = " "
+format-full-prefix-foreground = #296bcf
+format-full-underline = ${self.format-full-prefix-foreground}
 
-ramp-capacity-0 = 😺
-ramp-capacity-1 = 😸 
-ramp-capacity-2 = 😹 
+ramp-capacity-0 = 
+ramp-capacity-1 =  
+ramp-capacity-2 =  
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 😀
-animation-charging-1 = 😂
-animation-charging-2 = 🤣
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-0 =  
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-foreground = ${self.format-charging-underline}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 🙁
-animation-discharging-1 = 😣
-animation-discharging-2 = 😩
-animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-foreground = ${self.format-discharging-underline}
 animation-discharging-framerate = 750
 
 [settings]
@@ -190,29 +194,29 @@ enable-click = true
 enable-scroll = true
 reverse-scroll = false
 
-ws-icon-0 = I;😀
-ws-icon-1 = II;😂
-ws-icon-2 = III;😝
-ws-icon-3 = IV;😇
-ws-icon-default = 😐
+ws-icon-0 = I;🐬
+ws-icon-1 = II;🐎
+ws-icon-2 = III;🐕
+ws-icon-3 = IV;🦘
+ws-icon-default = 🐙
 
 format = <label-state> <label-mode>
 
-label-monitor = %icon% %name%
+label-monitor = " %icon% %name% "
 
 label-dimmed-foreground = #555
 label-dimmed-underline = ${bar/top.background}
 label-dimmed-focused-background = #f00
 
-label-focused = %icon% %name%
+label-focused = " %icon% %name% "
 label-focused-foreground = #1812db 
 label-focused-background = #9184b0
 label-focused-underline = #1812db
 
-label-occupied = ⚓ %name%
+label-occupied = " ⚓ %name% "
 label-occupied-underline = #cab5f5 
 
-label-urgent = %name%
+label-urgent = " %icon% %name% "
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-underline = #1812db
