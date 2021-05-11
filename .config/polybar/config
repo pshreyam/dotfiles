@@ -1,40 +1,40 @@
 [colors]
-background = #cc050508
-background-alt = #444
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+background = #040308
+foreground = #A0A8CD
+content-background = #2b2f37
+focused-background = #dd4e5361
+urgent-background = #44bd2c40
+initial = #cccccc
+black = #000000
+red = #ed3d34
+green = #32a852
+blue = #345beb
+grey = #555555
+light-blue = #6f74ed 
+separator = #b6ace3
 
 [bar/main-bar]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 25
+height = 23
 offset-x = 0
 offset-y = 0
-
-;; get absolute center for centre modules
-fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
-line-color = #f00
+line-size = 2 
 
-border-size = 0
-border-color = #00000000
+padding-left = 1
+padding-right = 1
 
-padding-left = 2
-padding-right = 2
+module-margin-left = 0
+module-margin-right = 0
 
-module-margin-left = 1
-module-margin-right = 1
+border-top-size = 4
+border-bottom-size = 4
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
 
-;; Using *-font as n will use font-(n-1)
-;; font-N = <fontconfig pattern>;<vertical offset>
-;; I've included fonts that not used now
 font-0 = FiraCode-SemiBold.ttf: Fira Code,Fira Code SemiBold:style=SemiBold,Regular:pixelsize=9;3 
 font-1 = fixed:pixelsize=10;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
@@ -43,100 +43,102 @@ font-4 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;2
 font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=12;2 
 font-6 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=12;2
 font-7 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=12;2
-font-8 = Nepali:style=NORMAL:size:12;2
-font-9 = PCS NEPALI:style=Normal:size:12;2
+font-8 = JetBrainsMono Nerd Font:size=15:antialias=true;4
 
+modules-left = round-left workspaces round-right sep xwindow
+modules-center= round-left date round-right
+modules-right = volume sep backlight sep notifications sep memory sep battery
 
-modules-left = xworkspaces xwindow
-modules-center= date
-modules-right = pulseaudio network memory cpu battery
+fixed-center = true
 
 tray-position = right
 tray-padding = 2
-tray-background = #440063ff
 
 wm-restack = bspwm
-
-;override-redirect = true
 
 cursor-click = pointer
 cursor-scroll = pointer
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
+[module/sep]
+type = custom/text
+content = " "
 
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = "🖥 "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #eb3d34
-label = %percentage:2%%
+[module/round-left]
+type = custom/text
+content = %{T9}%{T-}
+content-foreground = ${colors.content-background}
 
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = "🧠 "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #345beb
-label = %percentage_used%%
-
-click-left = "/usr/bin/terminator"
+[module/round-right]
+type = custom/text
+content = %{T9}%{T-}
+content-foreground = ${colors.content-background}
 
 [module/date]
 type = internal/date
 interval = 1
 
-date = 
-date-alt = " %b %d, %Y"
+date =
+date-alt = " %b %d, %Y %A"
 
-time = %A, %I:%M %p
-time-alt = | %I:%M:%S
+time = " %I:%M %p"
+time-alt =
 
 format-prefix = 🕖
-format-prefix-foreground = ${colors.foreground-alt}
+format-background = ${colors.content-background}
 
-label = %date% %time%
+label = %date%%time%
 
-[module/network]
-type = internal/network
-interface = wlo1
-interval = 1.0
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
 
-label-connected = ⬇️  %downspeed%
-label-disconnected = disconnected
-label-connected-underline = #c2cc2f
+format = %{T5}<ramp>%{T-} <label>
+format-padding = 1
 
-[module/pulseaudio]
+label = %percentage%%
+
+ramp-0 = 🌑
+ramp-1 = 🌒
+ramp-2 = 🌓
+ramp-3 = 🌔
+ramp-4 = 🌕
+
+[module/notifications]
+type = custom/script
+exec = [[ "$(dunstctl is-paused)" == "true" ]] && echo "🔕 off" || echo "🔔 on"
+interval = 1
+format-padding = 1
+
+click-left = dunstctl set-paused toggle
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:20:...%
+format-padding = 2
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.red}
+format-padding = 1
+label = %percentage_used:2%%
+
+[module/volume]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = 🔊 %percentage%%
-label-volume-foreground = ${root.foreground}
+format-volume = <label-volume> 
+format-volume-padding = 1
 
-label-muted = 🔇 Sound muted
-label-muted-foreground = #666
+label-volume = 🔊 %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+label-muted = 🔇 muted
+label-muted-foreground = ${colors.grey}
+format-muted-padding = 1
 
 ;; restrict max volume to 100%
 use-ui-max = false
-
-bar-volume-width = 8
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator =  
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -144,35 +146,39 @@ battery = BAT0
 adapter = AC
 full-at = 100
 
-format-charging-prefix = " "
+format-charging-prefix = " "
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #34eb46
+format-charging-padding = 1
 
 format-discharging-prefix =
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = #d42649 
+format-discharging-padding = 1
 
 format-full-prefix = " "
-format-full-prefix-foreground = #296bcf
-format-full-underline = ${self.format-full-prefix-foreground}
+format-full-prefix-foreground = ${colors.blue}
+format-full-padding = 1
 
 ramp-capacity-0 = 
-ramp-capacity-1 =  
-ramp-capacity-2 =  
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-1 =  
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.blue}
 
-animation-charging-0 =  
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-foreground = ${self.format-charging-underline}
+animation-charging-0 = 
+animation-charging-1 =  
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.green}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-foreground = ${self.format-discharging-underline}
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-foreground = ${colors.red}
 animation-discharging-framerate = 750
 
 [settings]
@@ -186,7 +192,7 @@ pseudo-transparency = true
 margin-top = 0
 margin-bottom = 0
 
-[module/xworkspaces]
+[module/workspaces]
 type = internal/bspwm
 pin-workspaces = true
 inline-mode = false
@@ -198,34 +204,44 @@ ws-icon-0 = I;🐬
 ws-icon-1 = II;🐎
 ws-icon-2 = III;🐕
 ws-icon-3 = IV;🦘
+ws-icon-4 = V;🐘
 ws-icon-default = 🐙
 
-format = <label-state> <label-mode>
+format = <label-state>
 
-label-monitor = " %icon% %name% "
+label-monitor = %icon%
 
-label-dimmed-foreground = #555
-label-dimmed-underline = ${bar/top.background}
-label-dimmed-focused-background = #f00
+label-dimmed-foreground = ${colors.grey}
+label-dimmed-underline = ${colors.grey}
+label-dimmed-background = ${colors.red}
+label-dimmed-padding = 1
 
-label-focused = " %icon% %name% "
-label-focused-foreground = #1812db 
-label-focused-background = #9184b0
-label-focused-underline = #1812db
+label-focused = %icon%
+label-focused-foreground = ${colors.green}
+label-focused-background = ${colors.focused-background}
+label-focused-underline = ${colors.green}
+label-focused-padding = 1
 
-label-occupied = " ⚓ %name% "
-label-occupied-underline = #cab5f5 
+label-occupied = %icon%
+label-occupied-foreground = ${colors.light-blue} 
+label-occupied-underline = ${colors.light-blue}
+label-occupied-background = ${colors.content-background}
+label-occupied-padding = 1
 
-label-urgent = " %icon% %name% "
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-underline = #1812db
+label-urgent = %icon%
+label-urgent-foreground = ${colors.black}
+label-urgent-background = ${colors.urgent-background} 
+label-urgent-underline = ${colors.red}
+label-urgent-padding = 1
 
-label-empty = %name%
-label-empty-foreground = #55
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground}
+label-empty-background = ${colors.content-background}
+label-empty-padding = 1
 
 label-separator = ►
 label-separator-padding = 1
-label-separator-foreground = #1812db
+label-separator-foreground = ${colors.separator}
+label-separator-background = ${colors.content-background}
 
 ; vim:ft=dosini

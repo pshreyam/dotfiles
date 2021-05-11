@@ -1,17 +1,19 @@
 call plug#begin('~/.config/nvim/plugged')
-
-Plug 'mcchrish/nnn.vim'
+    
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
-Plug 'morhetz/gruvbox'
 Plug 'itchyny/vim-gitbranch'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
+
+Plug 'joshdick/onedark.vim'
+Plug 'drewtempelmeyer/palenight.vim'
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme onedark
 
 set fileformat=unix
 set encoding=utf-8
@@ -25,7 +27,6 @@ set colorcolumn=80
 set mouse=a
 set cursorline
 set number relativenumber
-"set number
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -46,22 +47,11 @@ set splitright
 set foldmethod=indent
 set foldlevel=99
 
-let g:python3_host_prog = '/usr/bin/python3'
-
 set termguicolors
 
-"solarized config
-let g:neosolarized_contrast = "high"
-let g:neosolarized_visibility = "high"
-let g:neosolarized_vertSplitBgTrans = 1
-let g:neosolarized_bold = 1
-let g:neosolarized_underline = 1
-let g:neosolarized_italic = 0
-let g:neosolarized_termBoldAsBright = 1
-
-"configure the status bar
+" configure the status bar
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -71,22 +61,21 @@ let g:lightline = {
       \ },
       \ }
 
-"configure the nnn layout
-"let g:nnn#layout = 'new'
-"let g:nnn#layout = { 'left': '~20%' }
-let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+map <Leader>t :NERDTreeToggle<CR>
 
-"run nnn in detail
-let g:nnn#command = 'nnn -d'
-"Hidden files/folders can be toggled with :. or by placing -H flag
-
-"mapping \nnn to open nnn
-map <Leader>nnn :Np<CR>
-
-"mapping Alt+j and Alt+k to move lines down and up
+" map Alt+j and Alt+k to move lines down and up
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" map Ctrl + H for replacing patterns
+nnoremap <C-h> :%s///gc<Left><Left><Left><Left>
+
+" remove search highlight
+nnoremap <esc><esc> :noh<return>
+
+" source coc config
+source $HOME/.config/nvim/plug-config/coc.vim
