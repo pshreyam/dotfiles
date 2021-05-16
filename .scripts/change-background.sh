@@ -1,6 +1,16 @@
 #!/bin/bash
 
-ans="/home/shreyam/Pictures/wallpapers/$(echo -e "$(ls -1v ~/Pictures/wallpapers -I current_wallpaper.jpg)" | rofi -dmenu -i -p "Background")"
-echo "Copying $ans to ~/Pictures/wallpapers/current_wallpaper.jpg"
-cp "$ans" ~/Pictures/wallpapers/current_wallpaper.jpg
-feh --bg-fill ~/Pictures/wallpapers/current_wallpaper.jpg
+CURR_WALL=~/Pictures/wallpapers/current_wallpaper
+
+REPLY=$(echo -e "$(ls -1v ~/Pictures/wallpapers -I current_wallpaper)" \
+    | rofi -dmenu -i -p "Background")
+WALL="/home/shreyam/Pictures/wallpapers/$REPLY"
+
+if [[ -z "$REPLY" ]];then
+    notify-send "No wallpaper selected!" --urgency=low
+else
+    rm $CURR_WALL
+    ln -s $WALL $CURR_WALL 
+    feh --bg-fill $CURR_WALL 
+    notify-send "Wallpaper Changed" "Wallpaper -> $WALL"
+fi
