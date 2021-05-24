@@ -51,7 +51,6 @@ function cr() {
         echo "No repo selected!"
     else
         cd ~/Documents/repos/$reply
-        notify-send "Changed Working Directory" "Repo: $reply"
     fi
 }
 

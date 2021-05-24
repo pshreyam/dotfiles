@@ -3,7 +3,7 @@
 CURR_WALL=~/Pictures/wallpapers/current_wallpaper
 
 REPLY=$(echo -e "$(ls -1v ~/Pictures/wallpapers -I current_wallpaper)" \
-    | rofi -dmenu -i -p "Background")
+    | rofi -dmenu -i -p "Wallpaper")
 WALL="/home/shreyam/Pictures/wallpapers/$REPLY"
 
 if [[ -z "$REPLY" ]];then

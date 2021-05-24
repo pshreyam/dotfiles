@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-    kitty
+    alacritty
 
 # open webbrowser
 super + v 
@@ -34,7 +34,7 @@ super + minus
 
 # rofi change background prompt
 super + shift + s
-    ~/.scripts/change-background.sh
+    ~/.scripts/change-wallpaper.sh
 
 # rofi bookmarks prompt
 super + shift + b
@@ -50,17 +50,15 @@ super + shift + d
 
 # rofi emoji selector
 super + shift + e
-    rofi -show emoji -modi emoji -font "Fira Code 12" -lines 10
+    rofi -show emoji -modi emoji
 
 # rofi window switcher
 alt + Tab
-    rofi -show window -display-window "  Switch Windows" \
-    -show-icons -font "Fira Code 12" -lines 5
+    rofi -show window
 
 # program launcher
 super + @space
-    rofi -show drun -modi drun,run -display-drun " Apps" \
-    -display-run "Run" -show-icons -lines 5 -width 500 -font "Fira Code 12"
+    rofi -show drun -modi drun,run 
 
 # make sxhkd reload its configuration files:
 super + Escape
