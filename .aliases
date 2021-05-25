@@ -37,16 +37,10 @@ alias ckit='nvim ~/.config/kitty/kitty.conf'
 alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 
 # Repos navigation
-function gr() {
-    if [[ -n "$1" ]];then
-        [[ -d ~/Documents/repos/$1 ]] && cd ~/Documents/repos/$1 || echo "Sorry, no repo named $1."
-    else
-        cd ~/Documents/repos
-    fi
-}
+alias gr='cd ~/Documents/repos'
 
 function cr() {
-    reply=$(echo "$(ls -1 ~/Documents/repos)" | rofi -dmenu -p "Repos" -i)
+    reply=$(echo "$(ls -1 ~/Documents/repos)" | fzf)
     if [[ -z $reply ]];then
         echo "No repo selected!"
     else
