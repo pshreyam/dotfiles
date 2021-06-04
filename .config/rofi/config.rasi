@@ -9,21 +9,19 @@ configuration {
 
 * {
   font: "Fira Code 12";
-  icon-font: "MonoLisa Medium 18";
-  /* padding: 3px 5px; */
-  background-color: #11121DEE;
+  background-color: #000000CC;
   foreground: #A0A8CD;
-  color: @foreground;
-  separator-color: #000000;
-  text-color: #FFFFFF;
+  selected-text-color: #000000;
+  separator-color: @selected-text-color;
+  text-color: #CCCCCC;
 }
 
 
 window {
   background-color: @background-color;
   transparency: "real";
-  height: 55%;
-  width: 40%;
+  height: 50%;
+  width: 35%;
   border-radius: 20px;
 }
 
@@ -61,7 +59,7 @@ element {
 }
 
 element-icon {
-  size: 35px;
+  size: 30px;
   border: 0px;
 }
 
@@ -71,10 +69,10 @@ element-text {
 }
 
 element selected {
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 10px;
-  background-color: #9FBBF3;
-  color: @background-color;
+  background-color: #89bd7e;
+  color: @selected-text-color;
 }
 
 /* vim: ft=css

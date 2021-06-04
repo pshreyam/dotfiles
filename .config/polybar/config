@@ -1,117 +1,85 @@
 [colors]
-background = #040308
-foreground = #A0A8CD
-content-background = #2b2f37
-focused-background = #dd4e5361
-urgent-background = #44bd2c40
-initial = #cccccc
-black = #000000
+background = #cc000000
+foreground = #c9b7b1
 red = #ed3d34
 green = #32a852
 blue = #345beb
+blue-alt = #348ceb
+blue-alt-2 = #79a7d1
+yellow = #eba134
 grey = #555555
-light-blue = #6f74ed 
-separator = #b6ace3
 
 [bar/main-bar]
 width = 100%
-height = 23
+height = 25
 offset-x = 0
 offset-y = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2 
-
 padding-left = 1
-padding-right = 1
+padding-right = 0
 
 module-margin-left = 0
 module-margin-right = 0
 
-border-top-size = 4
-border-bottom-size = 4
-border-top-color = ${colors.background}
-border-bottom-color = ${colors.background}
+font-0 = Fira Code:style=Regular:pixelsize=9;3
+font-1 = JetBrainsMono Nerd Font:style=Bold;2
 
-font-0 = FiraCode-SemiBold.ttf: Fira Code,Fira Code SemiBold:style=SemiBold,Regular:pixelsize=9;3 
-font-1 = fixed:pixelsize=10;1
-font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-3 = siji:pixelsize=10;1
-font-4 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;2
-font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=12;2 
-font-6 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=12;2
-font-7 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=12;2
-font-8 = JetBrainsMono Nerd Font:size=15:antialias=true;4
-
-modules-left = round-left workspaces round-right sep xwindow
-modules-center= round-left date round-right
-modules-right = volume sep backlight sep notifications sep memory sep battery
+modules-left = workspaces windows
+modules-right = keyboard notifications volume memory battery date
 
 fixed-center = true
 
 tray-position = right
-tray-padding = 2
+tray-padding = 1
 
 wm-restack = bspwm
 
 cursor-click = pointer
 cursor-scroll = pointer
 
-[module/sep]
-type = custom/text
-content = " "
-
-[module/round-left]
-type = custom/text
-content = %{T9}%{T-}
-content-foreground = ${colors.content-background}
-
-[module/round-right]
-type = custom/text
-content = %{T9}%{T-}
-content-foreground = ${colors.content-background}
+enable-ipc = true
 
 [module/date]
 type = internal/date
 interval = 1
 
 date =
-date-alt = " %b %d, %Y %A"
+date-alt = "%b %d, %Y %A"
 
-time = " %I:%M %p"
+time = "%H:%M"
 time-alt =
 
-format-prefix = 🕖
-format-background = ${colors.content-background}
+format-prefix = " "
+format-prefix-foreground = ${colors.blue-alt}
+format-padding = 1
 
 label = %date%%time%
 
-[module/backlight]
-type = internal/backlight
-card = intel_backlight
+[module/keyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
 
-format = %{T5}<ramp>%{T-} <label>
-format-padding = 1
+format-prefix = "  "
+format-prefix-foreground = ${colors.blue}
 
-label = %percentage%%
+label-layout = %layout%
 
-ramp-0 = 🌑
-ramp-1 = 🌒
-ramp-2 = 🌓
-ramp-3 = 🌔
-ramp-4 = 🌕
+label-indicator-margin = 1
+label-indicator-foreground = ${colors.grey}
 
 [module/notifications]
 type = custom/script
-exec = [[ "$(dunstctl is-paused)" == "true" ]] && echo "🔕 off" || echo "🔔 on"
+exec = [[ "$(dunstctl is-paused)" == "true" ]] && echo  || echo 
 interval = 1
 format-padding = 1
+format-foreground = ${colors.yellow}
 
 click-left = dunstctl set-paused toggle
 
-[module/xwindow]
+[module/windows]
 type = internal/xwindow
 label = %title:0:20:...%
 format-padding = 2
@@ -119,8 +87,8 @@ format-padding = 2
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.red}
+format-prefix = " "
+format-prefix-foreground = ${colors.blue-alt-2}
 format-padding = 1
 label = %percentage_used:2%%
 
@@ -130,10 +98,10 @@ type = internal/pulseaudio
 format-volume = <label-volume> 
 format-volume-padding = 1
 
-label-volume = 🔊 %percentage%%
+label-volume = 墳 %percentage%%
 label-volume-foreground = ${colors.foreground}
 
-label-muted = 🔇 muted
+label-muted = ﱝ muted
 label-muted-foreground = ${colors.grey}
 format-muted-padding = 1
 
@@ -146,40 +114,43 @@ battery = BAT0
 adapter = AC
 full-at = 100
 
-format-charging-prefix = " "
+format-charging-prefix = " "
+format-charging-prefix-foreground = ${colors.grey}
 format-charging = <animation-charging> <label-charging>
 format-charging-padding = 1
 
 format-discharging-prefix =
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging> 
 format-discharging-padding = 1
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.blue}
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.green}
 format-full-padding = 1
 
-ramp-capacity-0 = 
-ramp-capacity-1 =  
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.blue}
+ramp-capacity-0  = %{F#ed3d34}%{F}
+ramp-capacity-1  = %{F#ed3d34}%{F}
+ramp-capacity-2  = %{F#ed3d34}%{F}
+ramp-capacity-3  = %{F#eba134}%{F}
+ramp-capacity-4  = %{F#eba134}%{F}
+ramp-capacity-5  = %{F#eba134}%{F}
+ramp-capacity-6  = %{F#32a852}%{F}
+ramp-capacity-7  = %{F#32a852}%{F}
+ramp-capacity-8  = %{F#32a852}%{F}
+ramp-capacity-9  = %{F#32a852}%{F}
+ramp-capacity-10 = %{F#32a852}%{F}
 
-animation-charging-0 = 
-animation-charging-1 =  
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = ${colors.green}
+animation-charging-0  = %{F#32a852}%{F}
+animation-charging-1  = %{F#32a852}%{F}
+animation-charging-2  = %{F#32a852}%{F}
+animation-charging-3  = %{F#32a852}%{F}
+animation-charging-4  = %{F#32a852}%{F}
+animation-charging-5  = %{F#32a852}%{F}
+animation-charging-6  = %{F#32a852}%{F}
+animation-charging-7  = %{F#32a852}%{F}
+animation-charging-8  = %{F#32a852}%{F}
+animation-charging-9  = %{F#32a852}%{F}
+animation-charging-10 = %{F#32a852}%{F}
 animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-animation-discharging-foreground = ${colors.red}
-animation-discharging-framerate = 750
 
 [settings]
 screenchange-reload = true
@@ -200,48 +171,37 @@ enable-click = true
 enable-scroll = true
 reverse-scroll = false
 
-ws-icon-0 = I;🐬
-ws-icon-1 = II;🐎
-ws-icon-2 = III;🐕
-ws-icon-3 = IV;🦘
-ws-icon-4 = V;🐘
-ws-icon-default = 🐙
+ws-icon-0 = I;
+ws-icon-1 = II;
+ws-icon-2 = III;
+ws-icon-3 = IV;醴
+ws-icon-4 = V;ﭮ
+ws-icon-5 = VI;
 
 format = <label-state>
 
 label-monitor = %icon%
 
 label-dimmed-foreground = ${colors.grey}
-label-dimmed-underline = ${colors.grey}
 label-dimmed-background = ${colors.red}
 label-dimmed-padding = 1
 
 label-focused = %icon%
 label-focused-foreground = ${colors.green}
-label-focused-background = ${colors.focused-background}
-label-focused-underline = ${colors.green}
 label-focused-padding = 1
 
 label-occupied = %icon%
-label-occupied-foreground = ${colors.light-blue} 
-label-occupied-underline = ${colors.light-blue}
-label-occupied-background = ${colors.content-background}
+label-occupied-foreground = ${colors.blue} 
 label-occupied-padding = 1
 
 label-urgent = %icon%
-label-urgent-foreground = ${colors.black}
-label-urgent-background = ${colors.urgent-background} 
-label-urgent-underline = ${colors.red}
+label-urgent-foreground = ${colors.red}
 label-urgent-padding = 1
 
 label-empty = %icon%
-label-empty-foreground = ${colors.foreground}
-label-empty-background = ${colors.content-background}
+label-empty-foreground = ${colors.grey}
 label-empty-padding = 1
 
-label-separator = ►
-label-separator-padding = 1
-label-separator-foreground = ${colors.separator}
-label-separator-background = ${colors.content-background}
+label-separator = " " 
 
 ; vim:ft=dosini

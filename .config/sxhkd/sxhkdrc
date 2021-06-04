@@ -20,7 +20,7 @@ super + alt + s
 
 # restore original window gap
 super + shift + grave
-    bspc config -d focused window_gap 8
+    bspc config -d focused window_gap 4
 
 # increase window gap
 super + equal
@@ -29,7 +29,7 @@ super + equal
 
 #decrease window gap
 super + minus
-    [[ $(bspc config -d focused window_gap) -ge 18 ]] && \
+    [[ $(bspc config -d focused window_gap) -ge 14 ]] && \
     bspc config -d focused window_gap $(($(bspc config -d focused window_gap)-10))
 
 # rofi change background prompt
@@ -66,7 +66,7 @@ super + Escape
 
 # lock screen
 super + alt + a
-    betterlockscreen -l
+    i3lock -i ~/Pictures/wallpapers/wall_4.png
 
 #
 # screenshot
