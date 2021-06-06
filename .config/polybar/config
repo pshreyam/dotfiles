@@ -28,7 +28,7 @@ font-0 = Fira Code:style=Regular:pixelsize=9;3
 font-1 = JetBrainsMono Nerd Font:style=Bold;2
 
 modules-left = workspaces windows
-modules-right = keyboard notifications volume memory battery date
+modules-right = keyboard notifications volume memory temperature battery date
 
 fixed-center = true
 
@@ -57,6 +57,27 @@ format-prefix-foreground = ${colors.blue-alt}
 format-padding = 1
 
 label = %date%%time%
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+format = <ramp> <label>
+format-padding = 1
+format-foreground = ${colors.blue-alt}
+label = %temperature-c%
+label-foreground = ${colors.foreground}
+
+format-warn = <ramp> <label-warn>
+format-warn-foreground = ${colors.red}
+format-warn-padding = 1
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.foreground}
 
 [module/keyboard]
 type = internal/xkeyboard
@@ -114,12 +135,11 @@ battery = BAT0
 adapter = AC
 full-at = 100
 
-format-charging-prefix = " "
-format-charging-prefix-foreground = ${colors.grey}
-format-charging = <animation-charging> <label-charging>
+format-charging-prefix = " "
+format-charging-prefix-foreground = ${colors.green}
+format-charging = <label-charging>
 format-charging-padding = 1
 
-format-discharging-prefix =
 format-discharging = <ramp-capacity> <label-discharging> 
 format-discharging-padding = 1
 
@@ -138,19 +158,6 @@ ramp-capacity-7  = %{F#32a852}%{F}
 ramp-capacity-8  = %{F#32a852}%{F}
 ramp-capacity-9  = %{F#32a852}%{F}
 ramp-capacity-10 = %{F#32a852}%{F}
-
-animation-charging-0  = %{F#32a852}%{F}
-animation-charging-1  = %{F#32a852}%{F}
-animation-charging-2  = %{F#32a852}%{F}
-animation-charging-3  = %{F#32a852}%{F}
-animation-charging-4  = %{F#32a852}%{F}
-animation-charging-5  = %{F#32a852}%{F}
-animation-charging-6  = %{F#32a852}%{F}
-animation-charging-7  = %{F#32a852}%{F}
-animation-charging-8  = %{F#32a852}%{F}
-animation-charging-9  = %{F#32a852}%{F}
-animation-charging-10 = %{F#32a852}%{F}
-animation-charging-framerate = 750
 
 [settings]
 screenchange-reload = true
