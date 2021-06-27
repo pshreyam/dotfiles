@@ -2,7 +2,7 @@
 set adjust-open "width"
 set statusbar-home-tilde "true"
 set window-title-basename "true"
-set recolor "true"
+# set recolor "true"
 set font "Fira Code 9"
 
 # Basic Settings
@@ -35,8 +35,8 @@ set index-active-fg             "#000000"
 set inputbar-bg                 "#282c34"
 set inputbar-fg                 "#ebdbb2"
 
-set statusbar-bg                "#89bd7e"
-set statusbar-fg                "#000000"
+set statusbar-bg                "#282c34"
+set statusbar-fg                "#ebdbb2"
 
 set highlight-color             "#fabd2f"
 set highlight-active-color      "#fe8019"

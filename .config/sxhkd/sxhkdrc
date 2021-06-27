@@ -32,6 +32,10 @@ super + minus
     [[ $(bspc config -d focused window_gap) -ge 14 ]] && \
     bspc config -d focused window_gap $(($(bspc config -d focused window_gap)-10))
 
+# set random wallpaper
+super + alt + a
+    ~/.scripts/rand-wallpaper.sh
+
 # rofi change background prompt
 super + shift + s
     ~/.scripts/change-wallpaper.sh
@@ -65,7 +69,7 @@ super + Escape
     pkill -USR1 -x sxhkd
 
 # lock screen
-super + alt + a
+super + x
     i3lock -i ~/Pictures/wallpapers/wall_4.png
 
 #

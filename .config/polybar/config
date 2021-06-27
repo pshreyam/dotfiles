@@ -28,7 +28,7 @@ font-0 = Fira Code:style=Regular:pixelsize=9;3
 font-1 = JetBrainsMono Nerd Font:style=Bold;2
 
 modules-left = workspaces windows
-modules-right = keyboard notifications volume memory temperature battery date
+modules-right = notifications volume memory temperature battery date
 
 fixed-center = true
 
@@ -78,18 +78,6 @@ format-warn-foreground = ${colors.red}
 format-warn-padding = 1
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.foreground}
-
-[module/keyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = "  "
-format-prefix-foreground = ${colors.blue}
-
-label-layout = %layout%
-
-label-indicator-margin = 1
-label-indicator-foreground = ${colors.grey}
 
 [module/notifications]
 type = custom/script
@@ -178,13 +166,6 @@ enable-click = true
 enable-scroll = true
 reverse-scroll = false
 
-ws-icon-0 = I;
-ws-icon-1 = II;
-ws-icon-2 = III;
-ws-icon-3 = IV;醴
-ws-icon-4 = V;ﭮ
-ws-icon-5 = VI;
-
 format = <label-state>
 
 label-monitor = %icon%
@@ -193,19 +174,19 @@ label-dimmed-foreground = ${colors.grey}
 label-dimmed-background = ${colors.red}
 label-dimmed-padding = 1
 
-label-focused = %icon%
+label-focused = 
 label-focused-foreground = ${colors.green}
 label-focused-padding = 1
 
-label-occupied = %icon%
-label-occupied-foreground = ${colors.blue} 
+label-occupied = 
+label-occupied-foreground = ${colors.blue-alt-2} 
 label-occupied-padding = 1
 
-label-urgent = %icon%
+label-urgent = 
 label-urgent-foreground = ${colors.red}
 label-urgent-padding = 1
 
-label-empty = %icon%
+label-empty = 
 label-empty-foreground = ${colors.grey}
 label-empty-padding = 1
 
