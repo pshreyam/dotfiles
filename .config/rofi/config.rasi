@@ -61,18 +61,20 @@ element {
 element-icon {
   size: 30px;
   border: 0px;
+  background-color: transparent;
 }
 
 element-text {
   expand: true;
   vertical-align: 0.5;
+  background-color: transparent;
 }
 
 element selected {
+  color: @selected-text-color;
   border-radius: 5px;
   padding: 10px;
-  background-color: #89bd7e;
-  color: @selected-text-color;
+  background-color: #3346f2;
 }
 
 /* vim: ft=css

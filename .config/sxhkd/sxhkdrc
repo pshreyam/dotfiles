@@ -54,15 +54,15 @@ super + shift + d
 
 # rofi emoji selector
 super + shift + e
-    rofi -show emoji -modi emoji
+    rofi -no-default-config -show emoji -modi emoji
 
 # rofi window switcher
 alt + Tab
-    rofi -show window
+    rofi -no-default-config -show window
 
 # program launcher
 super + @space
-    rofi -show drun -modi drun,run 
+    rofi -no-default-config -show drun -modi drun,run
 
 # make sxhkd reload its configuration files:
 super + Escape

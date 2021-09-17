@@ -10,7 +10,7 @@ with open('/home/shreyam/.scripts/bookmarks/bookmarks.json') as f:
 options = '\n'.join([f'{bookmark["title"]}' for bookmark in bookmarks])
 
 proc = subprocess.Popen(
-    ['rofi', '-dmenu', '-p', ' bookmarks', '-i'],
+    ['rofi', '-no-default-config', '-dmenu', '-p', ' bookmarks', '-i'],
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE
 )

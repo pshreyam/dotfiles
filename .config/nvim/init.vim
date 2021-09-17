@@ -5,7 +5,6 @@ Plug 'ap/vim-css-color'
 Plug 'itchyny/vim-gitbranch'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'joshdick/onedark.vim'
@@ -76,6 +75,3 @@ nnoremap <C-h> :%s///gc<Left><Left><Left><Left>
 
 " remove search highlight
 nnoremap <esc><esc> :noh<return>
-
-" source coc config
-source $HOME/.config/nvim/plug-config/coc.vim
