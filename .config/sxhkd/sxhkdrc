@@ -6,6 +6,10 @@
 super + Return
     alacritty
 
+# run google
+super + shift + Return
+    surf www.google.com
+
 # open webbrowser
 super + v 
     firefox
@@ -100,7 +104,11 @@ ctrl + shift + @Print
 
 # quit/restart bspwm
 super + alt + {q,r}
-    {~/.scripts/logout.sh,bspc wm -r}
+    {~/.scripts/powermenu/logout.sh,bspc wm -r}
+
+# powermenu
+super + p
+    ~/.scripts/powermenu/powermenu.sh
 
 # close and kill
 super + {_,shift + }w

@@ -1,17 +1,17 @@
 [colors]
 background = #cc000000
-foreground = #c9b7b1
+foreground = #c9e7e5
 red = #ed3d34
 green = #32a852
 blue = #345beb
 blue-alt = #348ceb
 blue-alt-2 = #79a7d1
 yellow = #eba134
-grey = #555555
+grey = #888888
 
 [bar/main-bar]
 width = 100%
-height = 25
+height = 28
 offset-x = 0
 offset-y = 0
 
@@ -25,10 +25,11 @@ module-margin-left = 0
 module-margin-right = 0
 
 font-0 = Fira Code:style=Regular:pixelsize=9;3
-font-1 = JetBrainsMono Nerd Font:style=Bold;2
+font-1 = JetBrainsMono Nerd Font:style=Bold;3
 
-modules-left = workspaces windows
-modules-right = notifications volume memory temperature battery date
+modules-left = windows
+modules-center = workspaces
+modules-right = date notifications volume memory temperature battery
 
 fixed-center = true
 
@@ -91,7 +92,8 @@ click-left = dunstctl set-paused toggle
 [module/windows]
 type = internal/xwindow
 label = %title:0:20:...%
-format-padding = 2
+format-prefix = "缾 "
+format-padding = 1
 
 [module/memory]
 type = internal/memory
@@ -174,19 +176,19 @@ label-dimmed-foreground = ${colors.grey}
 label-dimmed-background = ${colors.red}
 label-dimmed-padding = 1
 
-label-focused = 
+label-focused = 
 label-focused-foreground = ${colors.green}
 label-focused-padding = 1
 
-label-occupied = 
+label-occupied = 
 label-occupied-foreground = ${colors.blue-alt-2} 
 label-occupied-padding = 1
 
-label-urgent = 
+label-urgent = 什
 label-urgent-foreground = ${colors.red}
 label-urgent-padding = 1
 
-label-empty = 
+label-empty = 
 label-empty-foreground = ${colors.grey}
 label-empty-padding = 1
 
