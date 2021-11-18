@@ -74,7 +74,7 @@ super + Escape
 
 # lock screen
 super + x
-    i3lock -i ~/Pictures/wallpapers/wall_4.png
+    i3lock -i ~/Pictures/wallpapers/wall_48.png
 
 #
 # screenshot
@@ -107,7 +107,7 @@ super + alt + {q,r}
     {~/.scripts/powermenu/logout.sh,bspc wm -r}
 
 # powermenu
-super + p
+super + alt + p
     ~/.scripts/powermenu/powermenu.sh
 
 # close and kill

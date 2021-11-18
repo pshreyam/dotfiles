@@ -1,5 +1,5 @@
 [colors]
-background = #cc000000
+background = #dd000000
 foreground = #c9e7e5
 red = #ed3d34
 green = #32a852
@@ -9,11 +9,66 @@ blue-alt-2 = #79a7d1
 yellow = #eba134
 grey = #888888
 
-[bar/main-bar]
-width = 100%
+[bar/left-bar]
+width = 18%
 height = 28
-offset-x = 0
-offset-y = 0
+offset-x = 0.5%
+offset-y = 5
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 1
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+radius = 10.0
+
+font-0 = Fira Code:style=Regular:pixelsize=9;3
+font-1 = JetBrainsMono Nerd Font:style=Bold;3
+
+modules-center = windows
+
+fixed-center = true
+
+[bar/middle-bar]
+width = 20%
+height = 28
+offset-x = 40%
+offset-y = 5
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 1
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+radius = 10.0
+
+font-0 = Fira Code:style=Regular:pixelsize=9;3
+font-1 = JetBrainsMono Nerd Font:style=Bold;3
+
+modules-center = workspaces
+
+cursor-click = pointer
+cursor-scroll = pointer
+
+fixed-center = true
+
+wm-restack = bspwm
+
+[bar/right-bar]
+width = 33.5%
+height = 28
+offset-x = 66%
+offset-y = 5
+
+radius = 10.0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -27,21 +82,45 @@ module-margin-right = 0
 font-0 = Fira Code:style=Regular:pixelsize=9;3
 font-1 = JetBrainsMono Nerd Font:style=Bold;3
 
-modules-left = windows
-modules-center = workspaces
-modules-right = date notifications volume memory temperature battery
+modules-center = date notifications volume memory temperature battery
 
 fixed-center = true
-
-tray-position = right
-tray-padding = 1
-
-wm-restack = bspwm
 
 cursor-click = pointer
 cursor-scroll = pointer
 
 enable-ipc = true
+
+[bar/tray]
+width = 15%
+height = 28
+offset-x = 21.5%
+offset-y = 5
+
+radius = 10.0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 1
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+modules-center = void
+
+font-0 = Fira Code:style=Regular:pixelsize=9;3
+font-1 = JetBrainsMono Nerd Font:style=Bold;3
+
+fixed-center = true
+
+tray-position = center
+tray-padding = 1
+
+[module/void]
+type = custom/text
+content = " "
 
 [module/date]
 type = internal/date
@@ -92,8 +171,9 @@ click-left = dunstctl set-paused toggle
 [module/windows]
 type = internal/xwindow
 label = %title:0:20:...%
-format-prefix = "缾 "
+format-prefix = "%{F#ed3d34}缾%{F} "
 format-padding = 1
+label-empty = Empty Workspace
 
 [module/memory]
 type = internal/memory

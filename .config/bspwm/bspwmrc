@@ -34,6 +34,7 @@ bspc rule -a firefox desktop="II"
 bspc rule -a discord desktop="V"
 bspc rule -a Gimp-2.10 desktop="VI" state=floating
 bspc rule -a Zathura state=tiled 
+bspc rule -a Thunar desktop="III" state=tiled
 
 xsetroot -cursor_name left_ptr &
 

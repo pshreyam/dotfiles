@@ -9,6 +9,8 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'joshdick/onedark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'morhetz/gruvbox'
+Plug 'ulwlu/elly.vim'
 
 call plug#end()
 
@@ -73,5 +75,5 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " map Ctrl + H for replacing patterns
 nnoremap <C-h> :%s///gc<Left><Left><Left><Left>
 
-" remove search highlight
-nnoremap <esc><esc> :noh<return>
+" remove search highlight upon pressing escape twice
+nnoremap <Esc><Esc> :noh<return>

@@ -3,6 +3,9 @@ alias vc='python3 -m venv venv'
 alias va='source ./venv/bin/activate'
 alias vd='deactivate'
 alias uppip='pip install --upgrade pip'
+alias vca='vc && va && uppip'
+alias vcai='vca && pip install -r requirements.txt'
+alias ls='exa --icons'
 
 # Interactive command aliases
 alias mv='mv -in'
@@ -37,7 +40,7 @@ alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 alias gr='cd ~/Documents/repos'
 
 function cr() {
-    reply=$(echo "$(ls -1 ~/Documents/repos)" | fzf)
+    reply=$(echo "$(/bin/ls -1 ~/Documents/repos)" | fzf)
     if [[ -z $reply ]];then
         echo "No repo selected!"
     else
