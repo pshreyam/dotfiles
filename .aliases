@@ -5,7 +5,6 @@ alias vd='deactivate'
 alias uppip='pip install --upgrade pip'
 alias vca='vc && va && uppip'
 alias vcai='vca && pip install -r requirements.txt'
-alias ls='exa --icons'
 
 # Interactive command aliases
 alias mv='mv -in'
