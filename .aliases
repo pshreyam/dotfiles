@@ -32,7 +32,7 @@ alias cpic='nvim ~/.config/picom/picom.conf'
 alias crof='nvim ~/.config/rofi/config.rasi'
 alias czat='nvim ~/.config/zathura/zathurarc'
 alias cnvi='nvim ~/.config/nvim/init.vim'
-alias ckit='nvim ~/.config/kitty/kitty.conf'
+alias calac='nvim ~/.config/alacritty/alacritty.yml'
 alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 
 # Repos navigation
