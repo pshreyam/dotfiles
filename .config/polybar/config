@@ -1,43 +1,19 @@
 [colors]
-background = #dd000000
-foreground = #c9e7e5
+background = #cc000000
+foreground = #c9b7b1
 red = #ed3d34
 green = #32a852
 blue = #345beb
 blue-alt = #348ceb
 blue-alt-2 = #79a7d1
 yellow = #eba134
-grey = #888888
+grey = #555555
 
-[bar/left-bar]
-width = 18%
-height = 28
-offset-x = 0.5%
-offset-y = 5
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-padding-left = 1
-padding-right = 0
-
-module-margin-left = 0
-module-margin-right = 0
-
-radius = 10.0
-
-font-0 = Fira Code:style=Regular:pixelsize=9;3
-font-1 = JetBrainsMono Nerd Font:style=Bold;3
-
-modules-center = windows
-
-fixed-center = true
-
-[bar/middle-bar]
-width = 20%
-height = 28
-offset-x = 40%
-offset-y = 5
+[bar/main-bar]
+width = 100%
+height = 25
+offset-x = 0
+offset-y = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -48,79 +24,23 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-radius = 10.0
-
 font-0 = Fira Code:style=Regular:pixelsize=9;3
-font-1 = JetBrainsMono Nerd Font:style=Bold;3
+font-1 = JetBrainsMono Nerd Font:style=Bold;2
 
-modules-center = workspaces
-
-cursor-click = pointer
-cursor-scroll = pointer
+modules-left = workspaces windows
+modules-right = keyboard volume memory temperature battery date
 
 fixed-center = true
+
+tray-position = right
+tray-padding = 1
 
 wm-restack = bspwm
-
-[bar/right-bar]
-width = 33.5%
-height = 28
-offset-x = 66%
-offset-y = 5
-
-radius = 10.0
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-padding-left = 1
-padding-right = 0
-
-module-margin-left = 0
-module-margin-right = 0
-
-font-0 = Fira Code:style=Regular:pixelsize=9;3
-font-1 = JetBrainsMono Nerd Font:style=Bold;3
-
-modules-center = date notifications volume memory temperature battery
-
-fixed-center = true
 
 cursor-click = pointer
 cursor-scroll = pointer
 
 enable-ipc = true
-
-[bar/tray]
-width = 15%
-height = 28
-offset-x = 21.5%
-offset-y = 5
-
-radius = 10.0
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-padding-left = 1
-padding-right = 0
-
-module-margin-left = 0
-module-margin-right = 0
-
-modules-center = void
-
-font-0 = Fira Code:style=Regular:pixelsize=9;3
-font-1 = JetBrainsMono Nerd Font:style=Bold;3
-
-fixed-center = true
-
-tray-position = center
-tray-padding = 1
-
-[module/void]
-type = custom/text
-content = " "
 
 [module/date]
 type = internal/date
@@ -159,6 +79,18 @@ format-warn-padding = 1
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.foreground}
 
+[module/keyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = "  "
+format-prefix-foreground = ${colors.blue}
+
+label-layout = %layout%
+
+label-indicator-margin = 1
+label-indicator-foreground = ${colors.grey}
+
 [module/notifications]
 type = custom/script
 exec = [[ "$(dunstctl is-paused)" == "true" ]] && echo  || echo 
@@ -171,9 +103,7 @@ click-left = dunstctl set-paused toggle
 [module/windows]
 type = internal/xwindow
 label = %title:0:20:...%
-format-prefix = "%{F#ed3d34}缾%{F} "
-format-padding = 1
-label-empty = Empty Workspace
+format-padding = 2
 
 [module/memory]
 type = internal/memory
@@ -256,19 +186,19 @@ label-dimmed-foreground = ${colors.grey}
 label-dimmed-background = ${colors.red}
 label-dimmed-padding = 1
 
-label-focused = 
+label-focused = 
 label-focused-foreground = ${colors.green}
 label-focused-padding = 1
 
-label-occupied = 
-label-occupied-foreground = ${colors.blue-alt-2} 
+label-occupied = 
+label-occupied-foreground = ${colors.blue-alt-2}
 label-occupied-padding = 1
 
 label-urgent = 什
 label-urgent-foreground = ${colors.red}
 label-urgent-padding = 1
 
-label-empty = 
+label-empty = 
 label-empty-foreground = ${colors.grey}
 label-empty-padding = 1
 

@@ -36,19 +36,23 @@ alias calac='nvim ~/.config/alacritty/alacritty.yml'
 alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 
 # Repos navigation
-alias gr='cd ~/Documents/repos'
+alias gr='cd ~/Downloads/repos'
 
 function cr() {
-    reply=$(echo "$(/bin/ls -1 ~/Documents/repos)" | fzf)
+    reply=$(echo "$(/bin/ls -1 ~/Downloads/repos)" | fzf)
     if [[ -z $reply ]];then
         echo "No repo selected!"
     else
-        cd ~/Documents/repos/$reply
+        cd ~/Downloads/repos/$reply
     fi
 }
 
 # Some django aliases
-alias rs='python manage.py runserver'
-alias mi='python manage.py migrate'
-alias mm='python manage.py makemigrations'
-alias csu='python manage.py createsuperuser'
+alias rs='python3 manage.py runserver'
+alias mi='python3 manage.py migrate'
+alias mm='python3 manage.py makemigrations'
+alias csu='python3 manage.py createsuperuser'
+
+# Some Power Options aliases
+alias sd='systemctl poweroff'
+alias rb='systemctl reboot'

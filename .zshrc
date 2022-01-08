@@ -83,6 +83,10 @@ export EDITOR="/usr/bin/nvim"
 export TERM="xterm-256color"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export LC_CTYPE="en_US.UTF-8"
+export PATH="$PATH:/sbin"
+
+export PATH="$PATH:/opt/flutter/bin"
+export CHROME_EXECUTABLE="/usr/bin/brave-browser"
 
 # Load aliases from ~/.aliases file if present
 if [ -e ~/.aliases ]; then
