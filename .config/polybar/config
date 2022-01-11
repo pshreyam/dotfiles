@@ -28,7 +28,7 @@ font-0 = Fira Code:style=Regular:pixelsize=9;3
 font-1 = JetBrainsMono Nerd Font:style=Bold;2
 
 modules-left = workspaces windows
-modules-right = keyboard volume memory temperature battery date
+modules-right = keyboard notifications volume memory temperature battery date
 
 fixed-center = true
 
@@ -93,7 +93,7 @@ label-indicator-foreground = ${colors.grey}
 
 [module/notifications]
 type = custom/script
-exec = [[ "$(dunstctl is-paused)" == "true" ]] && echo  || echo 
+exec = (( "$(dunstctl is-paused)" == "true" )) && echo  || echo 
 interval = 1
 format-padding = 1
 format-foreground = ${colors.yellow}
