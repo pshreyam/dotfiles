@@ -86,6 +86,7 @@ export LC_CTYPE="en_US.UTF-8"
 export PATH="$PATH:/sbin"
 
 export PATH="$PATH:/opt/flutter/bin"
+export PATH="$HOME/.dotnet/tools:$PATH"
 export CHROME_EXECUTABLE="/usr/bin/brave-browser"
 
 # Load aliases from ~/.aliases file if present

@@ -11,7 +11,7 @@ super + shift + Return
     surf www.google.com
 
 # open webbrowser
-super + v 
+super + v
     firefox
 
 # open filemanager
@@ -19,7 +19,7 @@ super + shift + f
     thunar
 
 # show shortcuts
-super + alt + s 
+super + alt + s
     ~/.scripts/shortcuts.sh
 
 # restore original window gap
@@ -31,10 +31,14 @@ super + equal
     [[ $(bspc config -d focused window_gap) -le 128 ]] && \
     bspc config -d focused window_gap $(($(bspc config -d focused window_gap)+10))
 
-#decrease window gap
+# decrease window gap
 super + minus
     [[ $(bspc config -d focused window_gap) -ge 14 ]] && \
     bspc config -d focused window_gap $(($(bspc config -d focused window_gap)-10))
+
+# toggle on/off picom
+super + alt + o
+    ~/.scripts/picom-toggle.sh
 
 # set random wallpaper
 super + alt + a
