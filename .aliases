@@ -39,6 +39,7 @@ alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 alias gr='cd ~/Downloads/repos'
 
 function cr() {
+# cd into the selected repository
     reply=$(echo "$(/bin/ls -1 ~/Downloads/repos)" | fzf)
     if [[ -z $reply ]];then
         echo "No repo selected!"
@@ -46,6 +47,18 @@ function cr() {
         cd ~/Downloads/repos/$reply
     fi
 }
+
+function path() {
+# get the absolute path of the selected file
+    reply=$(echo "$(/bin/ls -1 `pwd`)" | fzf)
+    if [[ -z $reply ]];then
+        echo "No file selected!"
+    else
+        echo "`pwd`/$reply"
+    fi
+}
+
+alias nvim="/home/shreyam/.local/bin/nvim.appimage"
 
 # Some django aliases
 alias rs='python3 manage.py runserver'
