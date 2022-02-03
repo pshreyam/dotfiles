@@ -1,0 +1,6 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "dart"],
+  "flutter.lsp.initialization.closingLabels": true,
+  "flutter.provider.enableSnippet": true,
+  "flutter.UIPath": true
+}

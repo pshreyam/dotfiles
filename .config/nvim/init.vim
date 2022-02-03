@@ -1,11 +1,12 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" nvim settings
+" IDE settings
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " language settings
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -13,26 +14,23 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" colorscheme
+" colorschemes
 Plug 'joshdick/onedark.vim'
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'morhetz/gruvbox'
 Plug 'ulwlu/elly.vim'
-Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
-
-colorscheme onedark
 
 set fileformat=unix
 set encoding=utf-8
 set fileencoding=utf-8
 
 syntax enable
-set laststatus=2
-set background=dark
 
+set background=dark
+set termguicolors
 set colorcolumn=80
 set mouse=a
 set cursorline
@@ -48,10 +46,11 @@ set noswapfile
 set nobackup
 set incsearch
 set noshowmode
-set completeopt=menuone,noinsert
+set laststatus=2
 
-" set list to on (shows whitespace characters) and customize them using listchars
-set list listchars=tab:>·,trail:~,extends:>,precedes:<,space:•
+set completeopt=menuone,noinsert
+set listchars=tab:>·,trail:~,extends:>,precedes:<,space:•,eol:↲
+"set list "to set list on
 
 "set new splits to open below or right to the previous files
 set splitbelow
@@ -61,7 +60,7 @@ set splitright
 set foldmethod=indent
 set foldlevel=99
 
-set termguicolors
+colorscheme onedark
 
 " configure the status bar
 let g:lightline = {
@@ -81,6 +80,16 @@ let mapleader=","
 map <Leader>t :NERDTreeToggle<CR>
 map <Leader>w :set list!<CR>
 
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
+vnoremap <leader>y "+y
+vnoremap <leader>p "+p
+
+noremap <leader>h :vertical resize -5<CR>
+noremap <leader>j :resize -5<CR>
+noremap <leader>k :resize +5<CR>
+noremap <leader>l :vertical resize +5<CR>
+
 " map Alt+j and Alt+k to move lines down and up
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
@@ -97,4 +106,6 @@ nnoremap <silent><Esc><Esc> :noh<return>
 
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
-source ~/.config/nvim/coc.nvim
+source ~/.config/nvim/configplugins/coc.vim
+source ~/.config/nvim/configplugins/startify.vim
+source ~/.config/nvim/configplugins/treesitter.vim
