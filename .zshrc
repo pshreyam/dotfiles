@@ -1,9 +1,6 @@
 # Custom Prompt
 autoload -U colors && colors
 
-# add %{%G<character>%} around non-ASCII characters
-PROMPT="%B%F{171}%1~%f %{%G›%}%b "
-
 setopt histignorealldups sharehistory
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
@@ -11,17 +8,25 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-#Set RPROMPT with git branch name
+# add %{%G<character>%} around non-ASCII characters
+export PROMPT='%B%F{171}%1~%f %{%G›%}%b '
+
+# Set git branch name in the zsh prompt
 setopt prompt_subst
-. ~/.scripts/git-prompt.sh
-export RPROMPT=$'$(__git_ps1 "%s")'
+if [[ -f ~/.scripts/git-prompt.sh ]]; then
+    . ~/.scripts/git-prompt.sh
+    GIT_PS1_SHOWCOLORHINTS=1
+    GIT_PS1_SHOWDIRTYSTATE=1
+    # add %{%G<character>%} around non-ASCII characters
+    export PROMPT='%B%F{171}%1~%f $(__git_ps1 "(%s)")%{%G›%}%b '
+fi
 
 unsetopt prompt_cr prompt_sp
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
-#setopt share_history         # share command history data
+# setopt share_history         # share command history data
 
 # force zsh to show the complete history
 alias history="history 0"
@@ -76,10 +81,12 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 bindkey "^[[3~" delete-char
+# activate vim bindings
+bindkey -v
 
 # Custom Config Starts
 
-export EDITOR="/usr/bin/nvim"
+export EDITOR="/home/shreyam/.local/bin/nvim.appimage"
 export TERM="xterm-256color"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export LC_CTYPE="en_US.UTF-8"
