@@ -49,12 +49,20 @@ function cr() {
 }
 
 function path() {
-# get the absolute path of the selected file
+# get the absolute path of the selected file and copy it to the clipboard
     reply=$(echo "$(/bin/ls -1 `pwd`)" | fzf)
     if [[ -z $reply ]];then
         echo "No file selected!"
     else
-        echo "`pwd`/$reply"
+        absolute_path="`pwd`/$reply"
+        echo $absolute_path
+
+        if [[ -f "/usr/bin/xclip" ]];then
+            echo -n $absolute_path | xclip -selection clipboard
+            notify-send "Path copied" "Absolute path copied to the clipboard!"
+        else
+            notify-send "'xclip' not installed" "Install xclip to copy the absolute path to your clipboard!"
+        fi
     fi
 }
 

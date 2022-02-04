@@ -86,21 +86,27 @@ super + x
 
 # save entire screen
 @Print
-    scrot '%F_%T_$wx$h.png' -e 'mv $f ~/Pictures/ss/'
+    scrot '%F_%T_$wx$h.png' -e 'mv $f ~/Pictures/ss/' && notify-send "Screenshot captured!" "Saved to directory."
 
 # copy to clipboard entire screen
 ctrl + @Print
-    scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+    scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f' && notify-send "Screenshot captured!" "Copied to clipboard."
 
 # save selected area
 shift + @Print
-    scrot -s '%F_%T_$wx$h.png' -e 'mv $f ~/Pictures/ss/'
+    scrot -s '%F_%T_$wx$h.png' -e 'mv $f ~/Pictures/ss/' && notify-send "Snip captured!" "Saved to directory."
 
 # copy to clipboard selected area
 ctrl + shift + @Print
-    scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+    scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f' && notify-send "Snip captured!" "Copied to clipboard."
 
-# add similarly; use -u for windows (not required now)
+# save window capture
+alt + @Print
+    scrot -u '%F_%T_$wx$h.png' -e 'mv $f ~/Pictures/ss/' && notify-send "Window captured!" "Saved to directory."
+
+# copy to clipboard window capture
+ctrl + alt + @Print
+    scrot -u '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f' && notify-send "Window captured!" "Copied to clipboard."
 
 #
 # bspwm hotkeys

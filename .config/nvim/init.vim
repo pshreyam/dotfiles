@@ -90,6 +90,11 @@ noremap <leader>j :resize -5<CR>
 noremap <leader>k :resize +5<CR>
 noremap <leader>l :vertical resize +5<CR>
 
+nnoremap <leader><leader>h <C-w>h
+nnoremap <leader><leader>j <C-w>j
+nnoremap <leader><leader>k <C-w>k
+nnoremap <leader><leader>l <C-w>l
+
 " map Alt+j and Alt+k to move lines down and up
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
