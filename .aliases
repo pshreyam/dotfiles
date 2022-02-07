@@ -35,8 +35,10 @@ alias cnvi='nvim ~/.config/nvim/init.vim'
 alias calac='nvim ~/.config/alacritty/alacritty.yml'
 alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 
-# Repos navigation
+# Directory navigation
 alias gr='cd ~/Downloads/repos'
+alias gdoc='cd ~/Documents'
+alias gdown='cd ~/Downloads'
 
 function cr() {
 # cd into the selected repository
@@ -64,6 +66,16 @@ function path() {
             notify-send "'xclip' not installed" "Install xclip to copy the absolute path to your clipboard!"
         fi
     fi
+}
+
+function books() {
+# open the book using pdf viewer (inefficient method)
+    OLD_PATH=`pwd`
+    BOOKS_DIR='/home/shreyam/Documents/Books'
+    cd $BOOKS_DIR
+    reply="$BOOKS_DIR/$(fzf)"
+    zathura $reply
+    cd $OLD_PATH
 }
 
 alias nvim="/home/shreyam/.local/bin/nvim.appimage"

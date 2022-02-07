@@ -4,21 +4,25 @@
 
 # terminal emulator
 super + Return
-    terminator
+    $TERMINAL
 
-# run google
+# run google using surf
 super + shift + Return
     surf www.google.com
 
 # open webbrowser
 super + v
-    firefox
+    $BROWSER
 
 # open filemanager
 super + shift + f
-    thunar
+    $FILE_MANAGER
 
-# show shortcuts
+#
+# Custom shortcuts
+#
+
+# list out all the shortcuts
 super + alt + s
     ~/.scripts/shortcuts.sh
 
@@ -78,7 +82,7 @@ super + Escape
 
 # lock screen
 super + x
-    i3lock -i ~/Pictures/wallpapers/wall_48.png
+    i3lock -i $LOCK_SCREEN
 
 #
 # screenshot
@@ -120,7 +124,11 @@ super + alt + {q,r}
 super + alt + p
     ~/.scripts/powermenu/powermenu.sh
 
-# close and kill
+#
+# window shortcuts
+#
+
+# close and kill window
 super + {_,shift + }w
     bspc node -{c,k}
 

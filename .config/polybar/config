@@ -94,7 +94,7 @@ label-indicator-foreground = ${colors.grey}
 
 [module/notifications]
 type = custom/script
-exec = (( "$(dunstctl is-paused)" == "true" )) && echo  || echo 
+exec = [[ "$(dunstctl is-paused)" == "true" ]] && echo  || echo 
 interval = 1
 format-padding = 1
 format-foreground = ${colors.yellow}
