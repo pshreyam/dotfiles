@@ -62,7 +62,7 @@ super + shift + v
 
 # toggle dunst notification on and off
 super + shift + d
-    dunstctl set-paused toggle
+    polybar-msg hook notifications 2
 
 # rofi emoji selector
 super + shift + e

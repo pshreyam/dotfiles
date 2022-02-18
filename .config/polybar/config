@@ -1,11 +1,9 @@
 [colors]
-background = #cc000000
+background = #ee000000
 foreground = #c9b7b1
 red = #ed3d34
 green = #32a852
-blue = #345beb
-blue-alt = #348ceb
-blue-alt-2 = #79a7d1
+blue = #348ceb
 yellow = #eba134
 grey = #555555
 
@@ -28,8 +26,8 @@ font-0 = Fira Code:style=Regular:pixelsize=9;3
 font-1 = JetBrainsMono Nerd Font:style=Bold;2
 
 modules-left = workspaces windows
-modules-center = date
-modules-right = keyboard notifications volume memory temperature battery
+modules-center = dateandtime
+modules-right = notifications volume memory cpu temperature battery
 
 fixed-center = true
 
@@ -43,7 +41,7 @@ cursor-scroll = pointer
 
 enable-ipc = true
 
-[module/date]
+[module/dateandtime]
 type = internal/date
 interval = 1
 
@@ -53,8 +51,8 @@ date-alt = "%b %d, %Y - %A"
 time = "%I:%M %p"
 time-alt =
 
-format-prefix = " "
-format-prefix-foreground = ${colors.blue-alt}
+format-prefix = " "
+format-prefix-foreground = ${colors.blue}
 format-padding = 1
 
 label = %date%%time%
@@ -70,7 +68,7 @@ ramp-2 = 
 
 format = <ramp> <label>
 format-padding = 1
-format-foreground = ${colors.blue-alt}
+format-foreground = ${colors.blue}
 label = %temperature-c%
 label-foreground = ${colors.foreground}
 
@@ -80,26 +78,14 @@ format-warn-padding = 1
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.foreground}
 
-[module/keyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = "  "
-format-prefix-foreground = ${colors.blue}
-
-label-layout = %layout%
-
-label-indicator-margin = 1
-label-indicator-foreground = ${colors.grey}
-
 [module/notifications]
-type = custom/script
-exec = [[ "$(dunstctl is-paused)" == "true" ]] && echo  || echo 
-interval = 1
+type = custom/ipc
+hook-0 = [[ "$(dunstctl is-paused)" == "true" ]] && echo  || echo 
+hook-1 = dunstctl set-paused toggle && [[ "$(dunstctl is-paused)" == "true" ]] && echo  || echo 
+initial = 1
 format-padding = 1
 format-foreground = ${colors.yellow}
-
-click-left = dunstctl set-paused toggle
+click-left = polybar-msg -p %pid% hook notifications 2
 
 [module/windows]
 type = internal/xwindow
@@ -108,16 +94,24 @@ format-padding = 2
 
 [module/memory]
 type = internal/memory
-interval = 2
+interval = 0.5
 format-prefix = " "
-format-prefix-foreground = ${colors.blue-alt-2}
+format-prefix-foreground = ${colors.blue}
 format-padding = 1
 label = %percentage_used:2%%
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format-prefix = "﬙ "
+format-prefix-foreground = ${colors.blue}
+format-padding = 1
+label = %percentage:2%%
 
 [module/volume]
 type = internal/pulseaudio
 
-format-volume = <label-volume> 
+format-volume = <label-volume>
 format-volume-padding = 1
 
 label-volume = 墳 %percentage%%
@@ -141,7 +135,7 @@ format-charging-prefix-foreground = ${colors.green}
 format-charging = <label-charging>
 format-charging-padding = 1
 
-format-discharging = <ramp-capacity> <label-discharging> 
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-padding = 1
 
 format-full-prefix = " "
@@ -192,7 +186,7 @@ label-focused-foreground = ${colors.green}
 label-focused-padding = 1
 
 label-occupied = 
-label-occupied-foreground = ${colors.blue-alt-2}
+label-occupied-foreground = ${colors.blue}
 label-occupied-padding = 1
 
 label-urgent = 什
@@ -203,6 +197,6 @@ label-empty = 
 label-empty-foreground = ${colors.grey}
 label-empty-padding = 1
 
-label-separator = " " 
+label-separator = " "
 
 ; vim:ft=dosini

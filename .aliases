@@ -2,17 +2,18 @@
 alias vc='python3 -m venv venv'
 alias va='source ./venv/bin/activate'
 alias vd='deactivate'
-alias uppip='pip install --upgrade pip'
+alias inst='pip3 install -r requirements.txt'
+alias uppip='pip3 install --upgrade pip'
 alias vca='vc && va && uppip'
-alias vcai='vca && pip install -r requirements.txt'
+alias vcai='vca && inst'
 
 # Interactive command aliases
-alias mv='mv -in'
-alias cp='cp -in'
+alias mv='mv -i'
+alias cp='cp -i'
 alias rm='rm -i'
 
 # Manage dotfiles
-function dotfiles() { 
+function dotfiles() {
     /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
@@ -32,10 +33,12 @@ alias cpic='nvim ~/.config/picom/picom.conf'
 alias crof='nvim ~/.config/rofi/config.rasi'
 alias czat='nvim ~/.config/zathura/zathurarc'
 alias cnvi='nvim ~/.config/nvim/init.vim'
+alias cali='nvim ~/.aliases'
+alias cz='nvim ~/.zshrc'
 alias calac='nvim ~/.config/alacritty/alacritty.yml'
 alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 
-# Directory navigation
+# Directory navigation (go to directory)
 alias gr='cd ~/Downloads/repos'
 alias gdoc='cd ~/Documents'
 alias gdown='cd ~/Downloads'
@@ -68,16 +71,6 @@ function path() {
     fi
 }
 
-function books() {
-# open the book using pdf viewer (inefficient method)
-    OLD_PATH=`pwd`
-    BOOKS_DIR='/home/shreyam/Documents/Books'
-    cd $BOOKS_DIR
-    reply="$BOOKS_DIR/$(fzf)"
-    zathura $reply
-    cd $OLD_PATH
-}
-
 alias nvim="/home/shreyam/.local/bin/nvim.appimage"
 
 # Some django aliases
@@ -87,5 +80,5 @@ alias mm='python3 manage.py makemigrations'
 alias csu='python3 manage.py createsuperuser'
 
 # Some Power Options aliases
-alias sd='systemctl poweroff'
-alias rb='systemctl reboot'
+alias sd='poweroff'
+alias rb='reboot'
