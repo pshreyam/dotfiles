@@ -36,7 +36,7 @@ if [[ -f ~/.scripts/git-prompt.sh ]]; then
     GIT_PS1_SHOWCOLORHINTS=1
     GIT_PS1_SHOWDIRTYSTATE=1
     # add %{%G<character>%} around non-ASCII characters
-    export PROMPT='%B%F{171}%1~%f $(__git_ps1 "( %s)")%{%G›%}%b '
+    export PROMPT='%B%F{171}%1~%f $(__git_ps1 "on  %s")%{%G›%}%b '
 fi
 
 #
