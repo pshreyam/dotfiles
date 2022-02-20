@@ -14,7 +14,12 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
+Plug 'neovim/nvim-lspconfig'
+
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " colorschemes
 Plug 'joshdick/onedark.vim'
@@ -49,7 +54,7 @@ set noshowmode
 set laststatus=2
 
 set completeopt=menuone,noinsert
-set listchars=tab:>·,trail:~,extends:>,precedes:<,space:•,eol:↲
+set listchars=tab:>-,trail:~,extends:>,precedes:<,space:•,eol:↲
 "set list "to set list on
 
 "set new splits to open below or right to the previous files
@@ -77,23 +82,26 @@ let g:lightline = {
 " set leader key to ','
 let mapleader=","
 
-map <Leader>t :NERDTreeToggle<CR>
-map <Leader>w :set list!<CR>
+
+map <leader>t :NERDTreeToggle<CR>
+map <leader>w :set list!<CR>
+map <leader>s :source ~/.config/nvim/init.vim<CR>
+map <leader>e :edit ~/.config/nvim/init.vim<CR>
 
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>y "+y
 vnoremap <leader>p "+p
 
-noremap <leader>h :vertical resize -5<CR>
-noremap <leader>j :resize -5<CR>
-noremap <leader>k :resize +5<CR>
-noremap <leader>l :vertical resize +5<CR>
+noremap <leader><leader>h :vertical resize -5<CR>
+noremap <leader><leader>j :resize -5<CR>
+noremap <leader><leader>k :resize +5<CR>
+noremap <leader><leader>l :vertical resize +5<CR>
 
-nnoremap <leader><leader>h <C-w>h
-nnoremap <leader><leader>j <C-w>j
-nnoremap <leader><leader>k <C-w>k
-nnoremap <leader><leader>l <C-w>l
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
 
 " map Alt+j and Alt+k to move lines down and up
 nnoremap <A-j> :m .+1<CR>==
@@ -111,6 +119,11 @@ nnoremap <silent><Esc><Esc> :noh<return>
 
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
+" get rid of trailing spaces before saving
+autocmd BufWritePre * :%s/\s\+$//e
+
 source ~/.config/nvim/configplugins/coc.vim
 source ~/.config/nvim/configplugins/startify.vim
 source ~/.config/nvim/configplugins/treesitter.vim
+source ~/.config/nvim/configplugins/telescope.vim
+source ~/.config/nvim/configplugins/lspconfig.vim

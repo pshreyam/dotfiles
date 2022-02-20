@@ -1,7 +1,14 @@
-lua <<EOF
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
+lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = "maintained",
+
+  indent = {
+      enable = true
+  },
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
