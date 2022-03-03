@@ -13,19 +13,13 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
 
-# Manage dotfiles
-function dotfiles() {
-    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
-}
-
 # Get coloured output
 alias diff='diff --color=auto'
 
 # Restrict ping count to 4
 alias ping='ping -c 4'
 
-# Open config files
-
+# Config files aliases
 alias cb='nvim ~/.config/bspwm/bspwmrc'
 alias cs='nvim ~/.config/sxhkd/sxhkdrc'
 alias cpol='nvim ~/.config/polybar/config'
@@ -39,13 +33,32 @@ alias cz='nvim ~/.zshrc'
 alias calac='nvim ~/.config/alacritty/alacritty.yml'
 alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 
-# Directory navigation (go to directory)
+# Editor aliases
+alias nvim="/home/shreyam/.local/bin/nvim.appimage"
+alias nv="nvim"
+
+# Directory navigation (go to directory) aliases
 alias gr='cd ~/Downloads/repos'
 alias gdoc='cd ~/Documents'
 alias gdown='cd ~/Downloads'
 
+# Django aliases
+alias rs='python3 manage.py runserver'
+alias mi='python3 manage.py migrate'
+alias mm='python3 manage.py makemigrations'
+alias csu='python3 manage.py createsuperuser'
+
+# Power options aliases
+alias sd='poweroff'
+alias rb='reboot'
+
+# Manage dotfiles
+function dotfiles() {
+    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+}
+
+# Change directory into the selected repository
 function cr() {
-# cd into the selected repository
     reply=$(echo "$(/bin/ls -1 ~/Downloads/repos)" | fzf)
     if [[ -z $reply ]];then
         echo "No repo selected!"
@@ -54,8 +67,8 @@ function cr() {
     fi
 }
 
+# Get the absolute path of the selected file and copy it to the clipboard
 function path() {
-# get the absolute path of the selected file and copy it to the clipboard
     reply=$(echo "$(/bin/ls -1 `pwd`)" | fzf)
     if [[ -z $reply ]];then
         echo "No file selected!"
@@ -71,15 +84,3 @@ function path() {
         fi
     fi
 }
-
-alias nvim="/home/shreyam/.local/bin/nvim.appimage"
-
-# Some django aliases
-alias rs='python3 manage.py runserver'
-alias mi='python3 manage.py migrate'
-alias mm='python3 manage.py makemigrations'
-alias csu='python3 manage.py createsuperuser'
-
-# Some Power Options aliases
-alias sd='poweroff'
-alias rb='reboot'

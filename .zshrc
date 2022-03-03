@@ -72,7 +72,18 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 bindkey "^[[3~" delete-char # use delete key to delete character
 bindkey -v # activate vim bindings
+bindkey "^R" history-incremental-search-backward # incremental backward search
 export KEYTIMEOUT=1
+
+# Command completion with prefix
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Bind Up and Down arrow keys (defined in /etc/zsh/zshrc) to custom prefix completion function
+bindkey "$key[Up]" up-line-or-beginning-search
+bindkey "$key[Down]" down-line-or-beginning-search
 
 #
 # Exporting variables
