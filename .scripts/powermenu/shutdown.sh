@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-res="$(echo -e "Yes\nNo" | rofi -no-default-config -dmenu -p "Shutdown?" -i)"
+res="$(printf "No\nYes" | rofi -no-default-config -dmenu -p "Shutdown?" -i)"
 
-if [[ "$res" == "Yes" ]]; then
+if [ "$res" == "Yes" ]; then
     /sbin/poweroff
 fi

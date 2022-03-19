@@ -10,7 +10,7 @@ if [[ -z "$REPLY" ]];then
     notify-send "No wallpaper selected!" --urgency=low
 else
     rm $CURR_WALL
-    ln -s $WALL $CURR_WALL 
-    feh --bg-fill $CURR_WALL 
+    ln -s $WALL $CURR_WALL
+    feh --bg-fill $CURR_WALL
     notify-send "Wallpaper Changed" "Wallpaper -> $WALL"
 fi

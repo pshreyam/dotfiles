@@ -1,3 +1,5 @@
+#!/bin/sh
+
 h=`date +%H`
 
 if [ $h -lt 12 ]; then

@@ -2,6 +2,7 @@
 set adjust-open "width"
 set statusbar-home-tilde "true"
 set window-title-basename "true"
+set guioptions none
 # set recolor "true"
 set font "Fira Code 9"
 
@@ -9,12 +10,13 @@ set font "Fira Code 9"
 set zoom-center "true"
 set selection-clipboard "clipboard"
 
+map . toggle_statusbar
 map i recolor
 map [presentation] i recolor
 
 # Color Theme
 set notification-error-bg       "#282c34"
-set notification-error-fg       "#fb4934" 
+set notification-error-fg       "#fb4934"
 set notification-warning-bg     "#282c34"
 set notification-warning-fg     "#fabd2f"
 set notification-bg             "#282c34"
@@ -35,7 +37,7 @@ set index-active-fg             "#000000"
 set inputbar-bg                 "#282c34"
 set inputbar-fg                 "#ebdbb2"
 
-set statusbar-bg                "#282c34"
+set statusbar-bg                "#141417"
 set statusbar-fg                "#ebdbb2"
 
 set highlight-color             "#fabd2f"

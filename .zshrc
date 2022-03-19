@@ -36,7 +36,7 @@ if [[ -f ~/.scripts/git-prompt.sh ]]; then
     GIT_PS1_SHOWCOLORHINTS=1
     GIT_PS1_SHOWDIRTYSTATE=1
     # add %{%G<character>%} around non-ASCII characters
-    export PROMPT='%B%F{171}%1~%f $(__git_ps1 "on  %s")%{%G›%}%b '
+    export PROMPT='%B%F{171}%1~%f $(__git_ps1 "on %s")%{%G›%}%b '
 fi
 
 #
@@ -89,7 +89,7 @@ bindkey "$key[Down]" down-line-or-beginning-search
 # Exporting variables
 #
 
-export EDITOR="/home/shreyam/.local/bin/nvim.appimage"
+export EDITOR="/usr/bin/nvim"
 export TERM="xterm-256color"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export LC_CTYPE="en_US.UTF-8"

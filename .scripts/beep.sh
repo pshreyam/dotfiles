@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
 paplay ~/.scripts/beep.wav

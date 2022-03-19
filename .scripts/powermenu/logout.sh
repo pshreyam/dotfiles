@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-res="$(echo -e "Yes\nNo" | rofi -no-default-config -dmenu -p "Log Out?" -i)"
+res="$(printf "No\nYes" | rofi -no-default-config -dmenu -p "Log Out?" -i)"
 
-if [[ "$res" == "Yes" ]]; then
+if [ "$res" == "Yes" ]; then
     bspc quit
 fi

@@ -34,8 +34,7 @@ alias calac='nvim ~/.config/alacritty/alacritty.yml'
 alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 
 # Editor aliases
-alias nvim="/home/shreyam/.local/bin/nvim.appimage"
-alias nv="nvim"
+alias nv='/usr/bin/nvim'
 
 # Directory navigation (go to directory) aliases
 alias gr='cd ~/Downloads/repos'
@@ -51,6 +50,9 @@ alias csu='python3 manage.py createsuperuser'
 # Power options aliases
 alias sd='poweroff'
 alias rb='reboot'
+
+# Replacement program aliases
+alias ls='exa'
 
 # Manage dotfiles
 function dotfiles() {

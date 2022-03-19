@@ -2,7 +2,7 @@ env:
   TERM: xterm-256color
 
 window:
-  title: Terminal Emulator
+  title: Alacritty
   class:
     instance: Alacritty
     general: Alacritty
@@ -16,18 +16,18 @@ scrolling:
 
 font:
   normal:
-    family: Fira Code
+    family: JetBrains Mono
     style: Medium
   bold:
-    family: Fira Code
+    family: JetBrains Mono
     style: Bold
   italic:
-    family: Fira Code
+    family: JetBrains Mono
     style: Medium Italic
   bold_italic:
-    family: Fira Code
+    family: JetBrains Mono
     style: Bold Italic
-  size: 11
+  size: 10
 
 draw_bold_text_with_bright_colors: true
 tabspaces: 4
@@ -114,3 +114,6 @@ live_config_reload: true
 
 shell:
   program: /usr/bin/zsh
+
+key_bindings:
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }

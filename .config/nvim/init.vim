@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " IDE settings
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'preservim/nerdtree'
@@ -82,7 +82,6 @@ let g:lightline = {
 " set leader key to ','
 let mapleader=","
 
-
 map <leader>t :NERDTreeToggle<CR>
 map <leader>w :set list!<CR>
 map <leader>s :source ~/.config/nvim/init.vim<CR>
@@ -123,7 +122,7 @@ command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 autocmd BufWritePre * :%s/\s\+$//e
 
 source ~/.config/nvim/configplugins/coc.vim
-source ~/.config/nvim/configplugins/startify.vim
+" source ~/.config/nvim/configplugins/startify.vim
 source ~/.config/nvim/configplugins/treesitter.vim
 source ~/.config/nvim/configplugins/telescope.vim
 source ~/.config/nvim/configplugins/lspconfig.vim

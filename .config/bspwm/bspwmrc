@@ -16,7 +16,7 @@ dunst &
 
 bspc monitor -d I II III IV V VI VII VIII IX
 
-bspc config border_width         3
+bspc config border_width         0
 bspc config window_gap           4
 bspc config top_padding          0
 bspc config bottom_padding       0
@@ -31,10 +31,9 @@ bspc config gapless_monocle      true
 
 bspc rule -a Firefox-esr desktop="II"
 bspc rule -a Brave-browser desktop="II"
-bspc rule -a Thunar desktop="IV"
 bspc rule -a TelegramDesktop desktop="VI" state=tiled
-bspc rule -a discord desktop="VII"
 bspc rule -a Gimp-2.10 desktop="VIII" state=floating
+bspc rule -a discord desktop="IX"
 bspc rule -a Zathura state=tiled
 
 xsetroot -cursor_name left_ptr &
