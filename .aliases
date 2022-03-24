@@ -36,9 +36,12 @@ alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 # Editor aliases
 alias nv='/usr/bin/nvim'
 
+# Flagged aliases
+alias nnn='nnn -de'
+
 # Directory navigation (go to directory) aliases
 alias gr='cd ~/Downloads/repos'
-alias gdoc='cd ~/Documents'
+alias gdocs='cd ~/Documents'
 alias gdown='cd ~/Downloads'
 
 # Django aliases

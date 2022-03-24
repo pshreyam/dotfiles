@@ -30,6 +30,10 @@ super + alt + s
 super + shift + grave
     bspc config -d focused window_gap 4
 
+# set window gap to 0
+super + shift + grave + 0
+    bspc config -d focused window_gap 0
+
 # increase window gap
 super + equal
     [[ $(bspc config -d focused window_gap) -le 128 ]] && \
@@ -131,6 +135,10 @@ super + alt + p
 # close and kill window
 super + {_,shift + }w
     bspc node -{c,k}
+
+# force kill window
+super + alt + x
+    xkill
 
 # alternate between the tiled and monocle layout
 super + m
