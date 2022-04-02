@@ -14,6 +14,8 @@ $HOME/.config/polybar/launch.sh &
 nm-applet &
 dunst &
 
+pkill redshift && redshift -l 27.66:85.36 &
+
 bspc monitor -d I II III IV V VI VII VIII IX
 
 bspc config border_width         2
@@ -29,7 +31,7 @@ bspc config gapless_monocle      true
 
 # bspc config focus_follows_pointer true
 
-bspc rule -a Firefox-esr desktop="II"
+bspc rule -a firefox desktop="II"
 bspc rule -a Brave-browser desktop="II"
 bspc rule -a TelegramDesktop desktop="VI" state=tiled
 bspc rule -a Gimp-2.10 desktop="VIII" state=floating
