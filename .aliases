@@ -32,12 +32,9 @@ alias cz='nvim ~/.zshrc'
 alias calac='nvim ~/.config/alacritty/alacritty.yml'
 alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
 
-# Editor aliases
-alias nv='/usr/bin/nvim'
-alias n='/usr/bin/nvim'
-
-# Flagged aliases
-alias nnn='nnn -de'
+# Aliases
+alias v='/usr/bin/nvim'
+alias n='/usr/bin/nnn -de'
 
 # Directory navigation (go to directory) aliases
 alias gr='cd ~/Downloads/repos'

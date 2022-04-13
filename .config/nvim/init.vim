@@ -1,7 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " IDE settings
-" Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'preservim/nerdtree'
@@ -10,21 +9,15 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " language settings
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'rust-lang/rust.vim'
 Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neovim/nvim-lspconfig'
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
 " colorschemes
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
-Plug 'ulwlu/elly.vim'
 
 call plug#end()
 
@@ -46,6 +39,7 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set linebreak
+set scrolloff=8
 set wrap
 set noswapfile
 set nobackup
@@ -64,6 +58,10 @@ set splitright
 "enable folding
 set foldmethod=indent
 set foldlevel=99
+
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 colorscheme onedark
 
@@ -92,25 +90,21 @@ nnoremap <leader>p "+p
 vnoremap <leader>y "+y
 vnoremap <leader>p "+p
 
-noremap <leader><leader>h :vertical resize -5<CR>
-noremap <leader><leader>j :resize -5<CR>
-noremap <leader><leader>k :resize +5<CR>
-noremap <leader><leader>l :vertical resize +5<CR>
-
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
-" Force to use hjkl keys
-nnoremap <Up> <nop>
-nnoremap <Down> <nop>
-nnoremap <Left> <nop>
-nnoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
+noremap <leader>rh :vertical resize -5<CR>
+noremap <leader>rj :resize -5<CR>
+noremap <leader>rk :resize +5<CR>
+noremap <leader>rl :vertical resize +5<CR>
+
+nnoremap <leader>hh :windo wincmd K<CR>
+nnoremap <leader>vv :windo wincmd H<CR>
+
+nnoremap <leader>n :bn<CR>:echo expand('%:p')<CR>
+nnoremap <leader>N :bp<CR>:echo expand('%:p')<CR>
 
 " map Alt+j and Alt+k to move lines down and up
 nnoremap <A-j> :m .+1<CR>==
@@ -134,5 +128,4 @@ autocmd BufWritePre * :%s/\s\+$//e
 source ~/.config/nvim/configplugins/coc.vim
 " source ~/.config/nvim/configplugins/startify.vim
 source ~/.config/nvim/configplugins/treesitter.vim
-source ~/.config/nvim/configplugins/telescope.vim
 source ~/.config/nvim/configplugins/lspconfig.vim

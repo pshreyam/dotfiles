@@ -6,6 +6,7 @@ pkill picom
 pkill polybar
 pkill nm-applet
 pkill dunst
+pkill redshift
 
 # Start
 sxhkd &
@@ -13,8 +14,7 @@ picom --experimental-backend &
 $HOME/.config/polybar/launch.sh &
 nm-applet &
 dunst &
-
-pkill redshift && redshift -l 27.66:85.36 &
+redshift -l 27.66:85.36 &
 
 bspc monitor -d I II III IV V VI VII VIII IX
 

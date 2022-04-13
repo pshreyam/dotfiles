@@ -95,6 +95,8 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export LC_CTYPE="en_US.UTF-8"
 export PATH="$PATH:/sbin:/opt/flutter/bin:$HOME/.dotnet/tools:$HOME/Downloads/lua-5.4.4/src"
 export CHROME_EXECUTABLE="/usr/bin/brave-browser"
+BLK="04" CHR="04" DIR="04" EXE="00" REG="00" HARDLINK="00" SYMLINK="06" MISSING="00" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="02"
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 
 #
 # Aliases

@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+"""List out all the bookmarks with the help of rofi.
+
+Get the bookmarks from bookmarks.json file and then list it out.
+"""
+
 import json
 import webbrowser
 import subprocess
