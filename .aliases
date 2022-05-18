@@ -18,28 +18,34 @@ alias diff='diff --color=auto'
 # Restrict ping count to 4
 alias ping='ping -c 4'
 
+# Override the default editor for editing config files
+EDITOR='/usr/bin/nvim'
+
 # Config files aliases
-alias cb='nvim ~/.config/bspwm/bspwmrc'
-alias cs='nvim ~/.config/sxhkd/sxhkdrc'
-alias cpol='nvim ~/.config/polybar/config'
-alias cdun='nvim ~/.config/dunst/dunstrc'
-alias cpic='nvim ~/.config/picom/picom.conf'
-alias crof='nvim ~/.config/rofi/config.rasi'
-alias czat='nvim ~/.config/zathura/zathurarc'
-alias cnvi='nvim ~/.config/nvim/init.vim'
-alias cali='nvim ~/.aliases'
-alias cz='nvim ~/.zshrc'
-alias calac='nvim ~/.config/alacritty/alacritty.yml'
-alias bm='nvim ~/.scripts/bookmarks/bookmarks.json'
+alias cb="$EDITOR ~/.config/bspwm/bspwmrc"
+alias cs="$EDITOR ~/.config/sxhkd/sxhkdrc"
+alias cpol="$EDITOR ~/.config/polybar/config"
+alias cdun="$EDITOR ~/.config/dunst/dunstrc"
+alias cpic="$EDITOR ~/.config/picom/picom.conf"
+alias crof="$EDITOR ~/.config/rofi/config.rasi"
+alias czat="$EDITOR ~/.config/zathura/zathurarc"
+alias cnvi="$EDITOR ~/.config/nvim/init.vim"
+alias cali="$EDITOR ~/.aliases"
+alias cz="$EDITOR ~/.zshrc"
+alias calac="$EDITOR ~/.config/alacritty/alacritty.yml"
+alias bm="$EDITOR ~/.scripts/bookmarks/bookmarks.json"
 
 # Aliases
-alias v='/usr/bin/nvim'
+alias v=$EDITOR
+alias vi=$EDITOR
+alias vim=$EDITOR
 alias n='/usr/bin/nnn -de'
+alias trash='send2trash'
 
 # Directory navigation (go to directory) aliases
 alias gr='cd ~/Downloads/repos'
-alias gdocs='cd ~/Documents'
-alias gdown='cd ~/Downloads'
+alias gdc='cd ~/Documents'
+alias gdn='cd ~/Downloads'
 
 # Django aliases
 alias rs='python3 manage.py runserver'
@@ -53,6 +59,7 @@ alias rb='reboot'
 
 # Replacement program aliases
 alias ls='exa'
+alias tree='exa --tree'
 
 # Manage dotfiles
 function dotfiles() {
