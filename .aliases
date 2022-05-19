@@ -68,7 +68,7 @@ function dotfiles() {
 
 # Change directory into the selected repository
 function cr() {
-    reply=$(echo "$(/bin/ls -1 ~/Downloads/repos)" | fzf)
+    reply=$(echo "$(/bin/ls -1 ~/Downloads/repos)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository" --header-first --prompt="› " --pointer="➜")
     if [[ -z $reply ]];then
         echo "No repo selected!"
     else
@@ -86,7 +86,7 @@ function path() {
 
     [[ ! -d $search_path ]] && echo "Given path not a directory!" && return 0
 
-    reply=$(echo "$(/bin/ls -1 ${search_path})" | fzf)
+    reply=$(echo "$(/bin/ls -1 ${search_path})" | fzf --border=rounded --height=50% --layout=reverse --header="Choose File" --header-first --prompt="› " --pointer="➜")
 
     [[ -z $reply ]] && echo "No file selected!" && return 0
 
