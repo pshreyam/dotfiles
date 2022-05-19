@@ -3,12 +3,8 @@ call plug#begin('~/.config/nvim/plugged')
 " IDE settings
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-web-devicons'
 
 " language settings
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
 Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
@@ -46,6 +42,7 @@ set nobackup
 set incsearch
 set noshowmode
 set laststatus=2
+set signcolumn=yes
 
 set completeopt=menuone,noinsert
 set listchars=tab:>-,trail:~,extends:>,precedes:<,space:•,eol:↲
@@ -114,18 +111,12 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" map Ctrl + H for replacing patterns
-nnoremap <C-h> :%s///gc<Left><Left><Left><Left>
-
-" remove search highlight upon pressing escape twice; silent gets rid of message in the status bar
+" remove search highlight upon pressing escape twice
+" silent gets rid of message in the status bar
 nnoremap <silent><Esc><Esc> :noh<return>
-
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " get rid of trailing spaces before saving
 autocmd BufWritePre * :%s/\s\+$//e
 
-source ~/.config/nvim/configplugins/coc.vim
-" source ~/.config/nvim/configplugins/startify.vim
 source ~/.config/nvim/configplugins/treesitter.vim
 source ~/.config/nvim/configplugins/lspconfig.vim
