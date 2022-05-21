@@ -1,5 +1,5 @@
 [colors]
-background = #ee000000
+background = #ee151417
 foreground = #c9b7b1
 red = #ed3d34
 green = #32a852
@@ -8,16 +8,17 @@ yellow = #eba134
 grey = #555555
 
 [bar/main-bar]
-width = 100%
-height = 25
-offset-x = 0
-offset-y = 0
+width = 99.5%
+height = 28
+offset-x = 0.25%
+offset-y = 0.2%
+radius = 10
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 padding-left = 1
-padding-right = 0
+padding-right = 1
 
 module-margin-left = 0
 module-margin-right = 0
@@ -31,8 +32,8 @@ modules-right = notifications volume memory cpu temperature battery
 
 fixed-center = true
 
-tray-position = right
-tray-padding = 1
+; tray-position = right
+; tray-padding = 1
 
 wm-restack = bspwm
 
