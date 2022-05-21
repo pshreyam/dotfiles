@@ -56,7 +56,11 @@
     stack_duplicates = yes
     hide_duplicate_count = no
 
-    geometry = "250x50-5+35"
+    width = 250
+    height = 100
+    origin = top-right
+    offset = 5x40
+    notification_limit = 0
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -144,7 +148,7 @@
     frame_width = 0
     # frame_color = "#8EC07C"
 
-    corner_radius = 0
+    corner_radius = 10
 
     ### mouse
 
@@ -223,9 +227,9 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
-[play_sound]
-    summary = "*"
-    script = ~/.scripts/beep.sh
+# [play_sound]
+#     summary = "*"
+#     script = ~/.scripts/beep.sh
 
 #[espeak]
 #    summary = "*"

@@ -182,7 +182,7 @@ label-dimmed-foreground = ${colors.grey}
 label-dimmed-background = ${colors.red}
 label-dimmed-padding = 1
 
-label-focused = 
+label-focused = 
 label-focused-foreground = ${colors.green}
 label-focused-padding = 1
 
