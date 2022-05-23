@@ -4,15 +4,20 @@ set statusbar-home-tilde "true"
 set window-title-basename "true"
 set guioptions none
 # set recolor "true"
-set font "Fira Code 9"
+set font "JetBrains Mono 9"
 
 # Basic Settings
 set zoom-center "true"
 set selection-clipboard "clipboard"
 
+# Normal mode keybindings
 map . toggle_statusbar
 map i recolor
+
+# Presentation mode keybindings
 map [presentation] i recolor
+map [presentation] k navigate previous
+map [presentation] j navigate next
 
 # Color Theme
 set notification-error-bg       "#282c34"

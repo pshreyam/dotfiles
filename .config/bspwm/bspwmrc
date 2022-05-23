@@ -8,13 +8,13 @@ pkill nm-applet
 pkill dunst
 pkill redshift
 
-# Start
+# Start processes and applets
 sxhkd &
 picom --experimental-backend &
 $HOME/.config/polybar/launch.sh &
 nm-applet &
 dunst &
-redshift -l 27.66:85.36 &
+redshift-gtk &
 
 bspc monitor -d I II III IV V VI VII VIII IX
 
