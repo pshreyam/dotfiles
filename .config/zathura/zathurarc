@@ -10,14 +10,21 @@ set font "JetBrains Mono 9"
 set zoom-center "true"
 set selection-clipboard "clipboard"
 
+# Unmap default keybindings
+unmap q
+unmap [presentation] q
+
 # Normal mode keybindings
 map . toggle_statusbar
 map i recolor
+map [normal] p toggle_presentation
 
 # Presentation mode keybindings
+map [presentation] . toggle_statusbar
 map [presentation] i recolor
 map [presentation] k navigate previous
 map [presentation] j navigate next
+map [presentation] p toggle_presentation
 
 # Color Theme
 set notification-error-bg       "#282c34"

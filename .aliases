@@ -60,6 +60,7 @@ alias rb='reboot'
 # Replacement program aliases
 alias ls='exa'
 alias tree='exa --tree'
+alias cat='bat'
 
 # Manage dotfiles
 function dotfiles() {
