@@ -15,9 +15,6 @@ alias rm='rm -i'
 # Get coloured output
 alias diff='diff --color=auto'
 
-# Restrict ping count to 4
-alias ping='ping -c 4'
-
 # Override the default editor for editing config files
 EDITOR='/usr/bin/nvim'
 
