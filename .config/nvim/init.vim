@@ -8,8 +8,9 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'rust-lang/rust.vim'
 Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
+
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " colorschemes
 Plug 'joshdick/onedark.vim'
@@ -41,7 +42,7 @@ set noswapfile
 set nobackup
 set incsearch
 set noshowmode
-set laststatus=2
+set laststatus=3
 set signcolumn=yes
 
 set completeopt=menuone,noinsert
@@ -73,6 +74,10 @@ let g:lightline = {
       \   'gitbranch': 'gitbranch#name'
       \ },
       \ }
+
+" configure netrw file explorer
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
 
 " set leader key to ','
 let mapleader=","
@@ -111,12 +116,14 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+tnoremap <leader><Esc> <C-\><C-n>
+
 " remove search highlight upon pressing escape twice
 " silent gets rid of message in the status bar
 nnoremap <silent><Esc><Esc> :noh<return>
 
 " get rid of trailing spaces before saving
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre *.py :%s/\s\+$//e
 
-source ~/.config/nvim/configplugins/treesitter.vim
+" source ~/.config/nvim/configplugins/treesitter.vim
 source ~/.config/nvim/configplugins/lspconfig.vim

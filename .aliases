@@ -36,6 +36,7 @@ alias bm="$EDITOR ~/.scripts/bookmarks/bookmarks.json"
 alias v=$EDITOR
 alias vi=$EDITOR
 alias vim=$EDITOR
+
 alias n='/usr/bin/nnn -de'
 alias trash='send2trash'
 
