@@ -127,6 +127,11 @@ if [ -e ~/.aliases ]; then
     . ~/.aliases
 fi
 
+# Load functions from ~/.functions file if present
+if [ -e ~/.functions ]; then
+    . ~/.functions
+fi
+
 #
 # New line before each new prompt except the first one
 #
