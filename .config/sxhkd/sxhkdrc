@@ -6,10 +6,6 @@
 super + Return
     $TERMINAL
 
-# run google using surf
-super + shift + Return
-    surf www.google.com
-
 # open webbrowser
 super + v
     $BROWSER
@@ -84,10 +80,6 @@ super + @space
 super + Escape
     pkill -USR1 -x sxhkd
 
-# lock screen
-super + x
-    i3lock -i $LOCK_SCREEN
-
 #
 # screenshot
 #
@@ -125,7 +117,7 @@ super + alt + {q,r}
     {~/.scripts/powermenu/logout.sh,bspc wm -r}
 
 # powermenu
-super + alt + p
+super + x
     ~/.scripts/powermenu/powermenu.sh
 
 #

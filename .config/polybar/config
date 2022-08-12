@@ -1,9 +1,8 @@
 [colors]
-background = #ee151417
-foreground = #c9b7b1
-red = #ed3d34
-green = #32a852
-blue = #348ceb
+background = #00000000
+foreground = #ffffff
+red = #ff3d34
+green = #32ff52
 yellow = #eba134
 grey = #555555
 
@@ -27,12 +26,12 @@ font-0 = Fira Code:style=Regular:pixelsize=9;2
 font-1 = JetBrainsMono Nerd Font:style=Bold;2
 
 modules-left = workspaces windows
-modules-center =
-modules-right = notifications volume memory cpu temperature dateandtime battery
+modules-center = dateandtime
+modules-right = notifications volume memory cpu temperature battery
 
 fixed-center = true
 
-tray-position = center
+tray-position = right
 tray-padding = 1
 
 wm-restack = bspwm
@@ -47,13 +46,13 @@ type = internal/date
 interval = 1
 
 date =
-date-alt = "%b %d, %Y - %A"
+date-alt = " %b %d, %Y - %A ›"
 
-time = "%I:%M %p"
+time = " %I:%M %p ›"
 time-alt =
 
 format-prefix = " "
-format-prefix-foreground = ${colors.blue}
+format-prefix-foreground = ${colors.foreground}
 format-padding = 1
 
 label = %date%%time%
@@ -69,7 +68,7 @@ ramp-2 = 
 
 format = <ramp> <label>
 format-padding = 1
-format-foreground = ${colors.blue}
+format-foreground = ${colors.foreground}
 label = %temperature-c%
 label-foreground = ${colors.foreground}
 
@@ -90,6 +89,7 @@ click-left = polybar-msg -p %pid% hook notifications 2
 
 [module/windows]
 type = internal/xwindow
+format-prefix = "Window: "
 label = %title:0:20:...%
 format-padding = 2
 
@@ -97,7 +97,7 @@ format-padding = 2
 type = internal/memory
 interval = 0.5
 format-prefix = " "
-format-prefix-foreground = ${colors.blue}
+format-prefix-foreground = ${colors.foreground}
 format-padding = 1
 label = %percentage_used:2%%
 
@@ -105,7 +105,7 @@ label = %percentage_used:2%%
 type = internal/cpu
 interval = 0.5
 format-prefix = "﬙ "
-format-prefix-foreground = ${colors.blue}
+format-prefix-foreground = ${colors.foreground}
 format-padding = 1
 label = %percentage:2%%
 
@@ -187,7 +187,7 @@ label-focused-foreground = ${colors.green}
 label-focused-padding = 1
 
 label-occupied = 
-label-occupied-foreground = ${colors.blue}
+label-occupied-foreground = ${colors.foreground}
 label-occupied-padding = 1
 
 label-urgent = 什
@@ -195,7 +195,7 @@ label-urgent-foreground = ${colors.red}
 label-urgent-padding = 1
 
 label-empty = 
-label-empty-foreground = ${colors.grey}
+label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
 
 label-separator = " "
