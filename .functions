@@ -13,7 +13,7 @@ function clone() {
 
 # Change directory into the selected repository
 function cr() {
-    reply=$(echo "$(/bin/ls -1 ~/Downloads/repos/active)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository" --header-first --prompt="› " --pointer="➜")
+    reply=$(echo "$(/bin/ls -1 ~/Downloads/repos/active)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository To cd Into" --header-first --prompt="› " --pointer="➜")
     if [[ -z $reply ]];then
         echo "No repo selected!"
     else
@@ -29,6 +29,17 @@ function mar() {
     else
         ln -s ~/Downloads/repos/all/$reply ~/Downloads/repos/active/$reply
         echo "Successfully added '$reply' to active repos!"
+    fi
+}
+
+# Remove repo from active repos
+function rfar() {
+    reply=$(echo "$(/bin/ls -1 ~/Downloads/repos/active)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository To Remove From Active" --header-first --prompt="› " --pointer="➜")
+    if [[ -z $reply ]];then
+        echo "No repo selected!"
+    else
+        rm ~/Downloads/repos/active/$reply
+        echo "Successfully removed '$reply' from active repos!"
     fi
 }
 

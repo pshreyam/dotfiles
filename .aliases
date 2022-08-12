@@ -28,6 +28,7 @@ alias crof="$EDITOR ~/.config/rofi/config.rasi"
 alias czat="$EDITOR ~/.config/zathura/zathurarc"
 alias cnvi="$EDITOR ~/.config/nvim/init.vim"
 alias cali="$EDITOR ~/.aliases"
+alias cfunc="$EDITOR ~/.functions"
 alias cz="$EDITOR ~/.zshrc"
 alias calac="$EDITOR ~/.config/alacritty/alacritty.yml"
 alias bm="$EDITOR ~/.scripts/bookmarks/bookmarks.json"
@@ -42,6 +43,7 @@ alias trash='send2trash'
 
 # Directory navigation (go to directory) aliases
 alias gr='cd ~/Downloads/repos'
+alias gg='cd ~'
 alias gdc='cd ~/Documents'
 alias gdn='cd ~/Downloads'
 
