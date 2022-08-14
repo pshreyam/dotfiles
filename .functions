@@ -3,10 +3,18 @@ function dotfiles() {
     /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
-# Clone remote repo to specified location
+# Clone remote repo inside the 'all' repos directory
 function clone() {
     ret=$(pwd)
     cd ~/Downloads/repos/all
+    git clone $1
+    cd $ret
+}
+
+# Clone remote repo inside 'other' repos directory
+function other_clone() {
+    ret=$(pwd)
+    cd ~/Downloads/repos/other
     git clone $1
     cd $ret
 }
