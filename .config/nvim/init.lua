@@ -1,23 +1,74 @@
+require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+
+  use 'navarasu/onedark.nvim'
+
+  use { 'nvim-treesitter/nvim-treesitter', run=':TSUpdate'}
+
+  use { 'Everblush/everblush.nvim', as='everblush' }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+    --  use "lukas-reineke/indent-blankline.nvim"
+end)
+
+require("lualine").setup()
+
+vim.cmd [[highlight IndentBlanklineIndent1 guibg=#141b1e gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guibg=#202a2e gui=nocombine]]
+
+--[[
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+    char = "",
+    char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+    },
+    space_char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+    },
+    show_trailing_blankline_indent = false,
+}
+]]
+
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.smartindent = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
+vim.opt.completeopt = {"menuone", "noinsert"}
+vim.opt.mouse = "a"
+vim.opt.list = false
+vim.opt.listchars = { tab = ">-", trail = "~", extends = ">", precedes = "<", space = "•", eol = "↲"}
+vim.opt.cursorline = true
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.scrolloff = 4
+vim.opt.smartindent = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.linebreak = true
+vim.opt.wrap = true
+vim.opt.showmode = false
+vim.opt.laststatus = 3
+vim.opt.incsearch = true
+vim.opt.signcolumn = "yes"
+
+
+vim.cmd("colorscheme onedark")
+
 vim.cmd([[
-call plug#begin('~/.config/nvim/plugged')
-
-" IDE settings
-Plug 'itchyny/lightline.vim'
-Plug 'itchyny/vim-gitbranch'
-
-" language settings
-Plug 'rust-lang/rust.vim'
-Plug 'ap/vim-css-color'
-Plug 'jiangmiao/auto-pairs'
-
-Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" colorschemes
-Plug 'joshdick/onedark.vim'
-Plug 'morhetz/gruvbox'
-
-call plug#end()
 
 set fileformat=unix
 set encoding=utf-8
@@ -25,34 +76,7 @@ set fileencoding=utf-8
 
 syntax enable
 
-set background=dark
-set termguicolors
 set colorcolumn=80
-set mouse=a
-set cursorline
-set number relativenumber
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-set linebreak
-set scrolloff=8
-set wrap
-set noswapfile
-set nobackup
-set incsearch
-set noshowmode
-set laststatus=3
-set signcolumn=yes
-
-set completeopt=menuone,noinsert
-set listchars=tab:>-,trail:~,extends:>,precedes:<,space:•,eol:↲
-"set list "to set list on
-
-"set new splits to open below or right to the previous files
-set splitbelow
-set splitright
 
 "enable folding
 set foldmethod=indent
@@ -62,31 +86,12 @@ autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
-colorscheme onedark
-
-" configure the status bar
-let g:lightline = {
-      \ 'colorscheme': 'onedark',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },
-      \ }
-
-" configure netrw file explorer
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-
 " set leader key to ','
 let mapleader=","
 
-map <leader>t :NERDTreeToggle<CR>
 map <leader>w :set list!<CR>
-map <leader>s :source ~/.config/nvim/init.vim<CR>
-map <leader>e :edit ~/.config/nvim/init.vim<CR>
+map <leader>s :source ~/.config/nvim/init.lua<CR>
+map <leader>e :edit ~/.config/nvim/init.lua<CR>
 
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
@@ -122,10 +127,4 @@ tnoremap <leader><Esc> <C-\><C-n>
 " remove search highlight upon pressing escape twice
 " silent gets rid of message in the status bar
 nnoremap <silent><Esc><Esc> :noh<return>
-
-" get rid of trailing spaces before saving
-autocmd BufWritePre *.py :%s/\s\+$//e
-
-" source ~/.config/nvim/configplugins/treesitter.vim
-source ~/.config/nvim/configplugins/lspconfig.vim
 ]])
