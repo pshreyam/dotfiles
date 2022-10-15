@@ -31,9 +31,6 @@ alias rm='rm -i'
 # Get coloured output
 alias diff='diff --color=auto'
 
-# Override the default editor for editing config files
-EDITOR='/usr/bin/nvim'
-
 # Config files aliases
 alias cb="$EDITOR ~/.config/bspwm/bspwmrc"
 alias cs="$EDITOR ~/.config/sxhkd/sxhkdrc"
