@@ -10,9 +10,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+alias ip='ip --color=auto'
+
 alias history="history 0" # force zsh to show the complete history
 alias ll='ls -alF'
-alias la='ls -A'
+alias la='ls -a'
 
 # Python aliases
 alias vc='python3 -m venv venv'
