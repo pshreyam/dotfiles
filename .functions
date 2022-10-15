@@ -6,7 +6,7 @@ function dotfiles() {
 # Clone remote repo inside the 'all' repos directory
 function clone() {
     ret=$(pwd)
-    cd ~/Downloads/repos/all
+    cd ~/Code/repos/all
     git clone $1
     cd $ret
 }
@@ -14,39 +14,49 @@ function clone() {
 # Clone remote repo inside 'other' repos directory
 function other_clone() {
     ret=$(pwd)
-    cd ~/Downloads/repos/other
+    cd ~/Code/repos/other
     git clone $1
     cd $ret
 }
 
-# Change directory into the selected repository
+# Change directory into the selected active repository
 function cr() {
-    reply=$(echo "$(/bin/ls -1 ~/Downloads/repos/active)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository To cd Into" --header-first --prompt="› " --pointer="➜")
+    reply=$(echo "$(/bin/ls -1 ~/Code/repos/active)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository To cd Into" --header-first --prompt="› " --pointer="➜")
     if [[ -z $reply ]];then
         echo "No repo selected!"
     else
-        cd ~/Downloads/repos/active/$reply
+        cd ~/Code/repos/active/$reply
+    fi
+}
+
+# Change directory into the selected other repository
+function cor() {
+    reply=$(echo "$(/bin/ls -1 ~/Code/repos/other)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Other Repository To cd Into" --header-first --prompt="› " --pointer="➜")
+    if [[ -z $reply ]];then
+        echo "No repo selected!"
+    else
+        cd ~/Code/repos/other/$reply
     fi
 }
 
 # Add repo to active repos
 function mar() {
-    reply=$(echo "$(/bin/ls -1 ~/Downloads/repos/all)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository To Make Active" --header-first --prompt="› " --pointer="➜")
+    reply=$(echo "$(/bin/ls -1 ~/Code/repos/all)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository To Make Active" --header-first --prompt="› " --pointer="➜")
     if [[ -z $reply ]];then
         echo "No repo selected!"
     else
-        ln -s ~/Downloads/repos/all/$reply ~/Downloads/repos/active/$reply
+        ln -s ~/Code/repos/all/$reply ~/Code/repos/active/$reply
         echo "Successfully added '$reply' to active repos!"
     fi
 }
 
 # Remove repo from active repos
 function rfar() {
-    reply=$(echo "$(/bin/ls -1 ~/Downloads/repos/active)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository To Remove From Active" --header-first --prompt="› " --pointer="➜")
+    reply=$(echo "$(/bin/ls -1 ~/Code/repos/active)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository To Remove From Active" --header-first --prompt="› " --pointer="➜")
     if [[ -z $reply ]];then
         echo "No repo selected!"
     else
-        rm ~/Downloads/repos/active/$reply
+        rm ~/Code/repos/active/$reply
         echo "Successfully removed '$reply' from active repos!"
     fi
 }

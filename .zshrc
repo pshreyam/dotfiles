@@ -97,30 +97,16 @@ export PATH="$PATH:/sbin:/opt/flutter/bin:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.scripts"
 export CHROME_EXECUTABLE="/usr/bin/brave-browser"
 BLK="04" CHR="04" DIR="04" EXE="00" REG="00" HARDLINK="00" SYMLINK="06" MISSING="00" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="02"
-export NNN_BMS='d:~/Documents;D:~/Downloads;r:~/Downloads/repos;s:~/Downloads/sixth-sem'
+export NNN_BMS="d:~/Documents;D:~/Downloads;r:~/Downloads/repos;s:~/Downloads/Study"
 export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 export NNN_PLUG="p:preview-tui;v:imgview"
 export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_TRASH=1
+export CODE_DIR="~/Code"
 
 #
-# Aliases
+# Aliases / Functions
 #
-
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-alias history="history 0" # force zsh to show the complete history
-alias ll='ls -alF'
-alias la='ls -A'
 
 # Load aliases from ~/.aliases file if present
 if [ -e ~/.aliases ]; then
@@ -146,3 +132,5 @@ precmd() {
 	    fi
     fi
 }
+
+# eval "$(starship init zsh)"

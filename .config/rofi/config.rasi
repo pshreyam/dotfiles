@@ -6,7 +6,7 @@ configuration {
   display-emoji: "Emoji ›";
   show-icons: true;
   drun-display-format: "{icon} {name}";
-  modi: ["window", "drun", "run", "ssh", "emoji"];
+  modi: ["window", "drun", "run", "ssh", "emoji", "filebrowser"];
 }
 
 * {

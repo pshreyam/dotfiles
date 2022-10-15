@@ -6,9 +6,9 @@
 super + Return
     $TERMINAL
 
-# open webbrowser
+# open filebrowser
 super + v
-    $BROWSER
+    rofi -show filebrowser -no-default-config
 
 # open filemanager
 super + shift + f
