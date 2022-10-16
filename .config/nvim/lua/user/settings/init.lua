@@ -53,4 +53,5 @@ autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " get rid of trailing spaces before saving
 autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.lua :%s/\s\+$//e
 ]])

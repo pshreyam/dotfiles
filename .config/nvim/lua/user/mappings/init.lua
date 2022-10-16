@@ -8,13 +8,17 @@ map('n', '<leader>w', ':set list!<CR>', opts)
 map('n', '<leader>e', ':edit ~/.config/nvim/init.lua<CR>', opts)
 map('n', '<leader>s', ':source ~/.config/nvim/init.lua<CR>', opts)
 
-vim.keymap.set({'n', 'x'}, '<leader>y', '"+y', opts)
-vim.keymap.set({'n', 'x'}, '<leader>p', '"+p', opts)
+map('i', 'jk', '<Esc>', opts)
 
-map('n', '<leader>h', '<C-w>h', opts)
-map('n', '<leader>j', '<C-w>j', opts)
-map('n', '<leader>k', '<C-w>k', opts)
-map('n', '<leader>l', '<C-w>l', opts)
+map('n', '<leader>y', '"+y', opts)
+map('x', '<leader>y', '"+y', opts)
+map('n', '<leader>p', '"+p', opts)
+map('x', '<leader>p', '"+p', opts)
+
+map('n', '<C-h>', '<C-w>h', opts)
+map('n', '<C-j>', '<C-w>j', opts)
+map('n', '<C-k>', '<C-w>k', opts)
+map('n', '<C-l>', '<C-w>l', opts)
 
 map('n', '<leader>rh', ':vertical resize -5<CR>', opts)
 map('n', '<leader>rj', ':resize -5<CR>', opts)
@@ -35,6 +39,6 @@ map('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 map('v', '<A-j>', ":m '>+1<CR>gv=gv", opts)
 map('v', '<A-k>', ":m '<-2<CR>gv=gv", opts)
 
--- map('t', '<leader><Esc>', '<C-\><C-n>', opts)
+map('t', '<leader><Esc>', ':<C-\\><C-n>', opts)
 
 map('n', '<Esc><Esc>', ':noh<CR>', opts)
