@@ -1,3 +1,8 @@
+local load = function(mod)
+    package.loaded[mod] = nil
+    require(mod)
+end
+
 require('user.plugins')
 require('user.plugins.lualine-config')
 require('user.plugins.nvim-tree-config')
