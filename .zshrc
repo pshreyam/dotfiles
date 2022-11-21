@@ -134,3 +134,4 @@ precmd() {
 }
 
 # eval "$(starship init zsh)"
+pfetch
