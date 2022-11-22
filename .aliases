@@ -36,7 +36,7 @@ alias diff='diff --color=auto'
 # Config files aliases
 alias cb="$EDITOR ~/.config/bspwm/bspwmrc"
 alias cs="$EDITOR ~/.config/sxhkd/sxhkdrc"
-alias cpol="$EDITOR ~/.config/polybar/config"
+alias cpol="$EDITOR ~/.config/polybar/config.ini"
 alias cdun="$EDITOR ~/.config/dunst/dunstrc"
 alias cpic="$EDITOR ~/.config/picom/picom.conf"
 alias crof="$EDITOR ~/.config/rofi/config.rasi"
