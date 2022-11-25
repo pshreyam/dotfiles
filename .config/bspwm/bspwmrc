@@ -15,6 +15,7 @@ $HOME/.config/polybar/launch.sh &
 nm-applet &
 dunst &
 redshift-gtk &
+xfce4-clipman &
 
 bspc monitor -d I II III IV V VI VII VIII IX
 
