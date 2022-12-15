@@ -25,6 +25,7 @@ map [presentation] i recolor
 map [presentation] k navigate previous
 map [presentation] j navigate next
 map [presentation] p toggle_presentation
+map [presentation] <Esc> toggle_presentation
 
 # Color Theme
 set notification-error-bg       "#282c34"
