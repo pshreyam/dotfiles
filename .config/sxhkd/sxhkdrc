@@ -116,9 +116,9 @@ ctrl + alt + @Print
 super + alt + {q,r}
     {~/.scripts/powermenu/logout.sh,bspc wm -r}
 
-# powermenu
+# lock screen
 super + x
-    ~/.scripts/powermenu/powermenu.sh
+    betterlockscreen -l blur
 
 #
 # window shortcuts
