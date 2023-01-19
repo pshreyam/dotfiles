@@ -21,7 +21,7 @@ xfce4-clipman &
 bspc monitor -d I II III IV V VI VII VIII IX
 
 bspc config border_width         1
-bspc config window_gap           2
+bspc config window_gap           0
 bspc config top_padding          0
 bspc config bottom_padding       0
 bspc config left_padding         0
