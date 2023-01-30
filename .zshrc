@@ -122,16 +122,23 @@ fi
 # New line before each new prompt except the first one
 #
 
-new_line_before_prompt=yes
-precmd() {
-    if [ "$new_line_before_prompt" = yes ]; then
-	    if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
-	        _NEW_LINE_BEFORE_PROMPT=1
-	    else
-	        print ""
-	    fi
-    fi
-}
+# new_line_before_prompt=yes
+# precmd() {
+#     if [ "$new_line_before_prompt" = yes ]; then
+# 	    if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
+# 	        _NEW_LINE_BEFORE_PROMPT=1
+# 	    else
+# 	        print ""
+# 	    fi
+#     fi
+# }
 
-# eval "$(starship init zsh)"
-# pfetch
+#
+# Initialize Starship Prompt
+#
+
+eval "$(starship init zsh)"
+
+# To remove ZSH Autosuggestions, remove the directory and
+# remove the reference of the plugin below
+source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
