@@ -1,16 +1,11 @@
-# ZSH default aliases
+# Get coloured output
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias diff='diff --color=auto'
+    alias ip='ip --color=auto'
 fi
-
-alias ip='ip --color=auto'
 
 alias history="history 0" # force zsh to show the complete history
 alias ll='ls -alF'
@@ -20,7 +15,6 @@ alias la='ls -a'
 alias vc='python3 -m venv venv'
 alias va='source ./venv/bin/activate'
 alias vd='deactivate'
-alias inst='pip3 install -r requirements.txt'
 alias uppip='pip3 install --upgrade pip'
 alias vca='vc && va && uppip'
 alias vcai='vca && inst'
@@ -29,9 +23,6 @@ alias vcai='vca && inst'
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
-
-# Get coloured output
-alias diff='diff --color=auto'
 
 # Config files aliases
 alias cb="$EDITOR ~/.config/bspwm/bspwmrc"
@@ -49,11 +40,7 @@ alias calac="$EDITOR ~/.config/alacritty/alacritty.yml"
 alias bm="$EDITOR ~/.scripts/bookmarks/bookmarks.json"
 
 # Aliases
-alias v=$EDITOR
 alias vi=$EDITOR
-alias vim=$EDITOR
-
-alias n='/usr/bin/nnn -de'
 alias nnn='/usr/bin/nnn -de'
 alias trash='send2trash'
 
@@ -69,10 +56,6 @@ alias rs='python3 manage.py runserver'
 alias mi='python3 manage.py migrate'
 alias mm='python3 manage.py makemigrations'
 alias csu='python3 manage.py createsuperuser'
-
-# Power options aliases
-alias sd='poweroff'
-alias rb='reboot'
 
 # Replacement program aliases
 alias ls='exa --icons --group-directories-first'
