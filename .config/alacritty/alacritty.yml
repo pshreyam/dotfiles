@@ -104,7 +104,7 @@ schemes:
       cyan: "0x89b482"
       white: "0xdfbf8e"
 
-colors: *onedark
+colors: *gruvbox
 
 selection:
   save_to_clipboard: false
@@ -115,5 +115,4 @@ shell:
   program: /usr/bin/zsh
 
 key_bindings:
-  - { key: N, mods: Control, action: SpawnNewInstance }
-  - { key: W, mods: Control, action: Quit }
+  - { key: N, mods: Control|Shift, action: SpawnNewInstance }
