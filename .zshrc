@@ -24,22 +24,6 @@ unsetopt prompt_cr prompt_sp
 autoload -U colors && colors
 
 #
-# Set custom prompt
-#
-
-# add %{%G<character>%} around non-ASCII characters
-export PROMPT='%B%F{171}%1~%f %{%G›%}%b '
-
-# Set git branch name in the zsh prompt
-if [[ -f ~/.scripts/git-prompt.sh ]]; then
-    . ~/.scripts/git-prompt.sh
-    GIT_PS1_SHOWCOLORHINTS=1
-    GIT_PS1_SHOWDIRTYSTATE=1
-    # add %{%G<character>%} around non-ASCII characters
-    export PROMPT='%B%F{171}%1~%f $(__git_ps1 "on %s")%{%G›%}%b '
-fi
-
-#
 # Completion config
 #
 
@@ -71,9 +55,14 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Custom keybindings
 #
 
-bindkey "^[[3~" delete-char # use delete key to delete character
-bindkey -v # activate vim bindings
-bindkey "^R" history-incremental-search-backward # incremental backward search
+# use delete key to delete character after cursor
+bindkey "^[[3~" delete-char
+# activate vim bindings
+bindkey -v
+# use backspace key to delete character before cursor in vim mode
+bindkey -v '^?' backward-delete-char
+# incremental backward search
+bindkey "^R" history-incremental-search-backward
 export KEYTIMEOUT=1
 
 # Command completion with prefix
@@ -117,21 +106,6 @@ fi
 if [ -e ~/.functions ]; then
     . ~/.functions
 fi
-
-#
-# New line before each new prompt except the first one
-#
-
-# new_line_before_prompt=yes
-# precmd() {
-#     if [ "$new_line_before_prompt" = yes ]; then
-# 	    if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
-# 	        _NEW_LINE_BEFORE_PROMPT=1
-# 	    else
-# 	        print ""
-# 	    fi
-#     fi
-# }
 
 #
 # Initialize Starship Prompt
