@@ -19,16 +19,16 @@ scrolling:
 
 font:
   normal:
-    family: JetBrains Mono
+    family: JetBrains Mono Nerd Font
     style: Medium
   bold:
-    family: JetBrains Mono
+    family: JetBrains Mono Nerd Font
     style: Bold
   italic:
-    family: JetBrains Mono
+    family: JetBrains Mono Nerd Font
     style: Medium Italic
   bold_italic:
-    family: JetBrains Mono
+    family: JetBrains Mono Nerd Font
     style: Bold Italic
   size: 10
 
@@ -104,7 +104,7 @@ schemes:
       cyan: "0x89b482"
       white: "0xdfbf8e"
 
-colors: *gruvbox
+colors: *onedark
 
 selection:
   save_to_clipboard: false
