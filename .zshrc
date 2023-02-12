@@ -113,6 +113,8 @@ fi
 
 eval "$(starship init zsh)"
 
-# To remove ZSH Autosuggestions, remove the directory and
+# To remove the following ZSH plugins, remove the directory and
 # remove the reference of the plugin below
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
