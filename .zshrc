@@ -75,25 +75,6 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
 #
-# Exporting variables
-#
-
-export EDITOR="/usr/bin/nvim"
-export TERM="xterm-256color"
-export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
-export LC_CTYPE="en_US.UTF-8"
-export PATH="$PATH:/sbin:/opt/flutter/bin:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.scripts"
-export CHROME_EXECUTABLE="/usr/bin/brave-browser"
-BLK="04" CHR="04" DIR="04" EXE="00" REG="00" HARDLINK="00" SYMLINK="06" MISSING="00" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="02"
-export NNN_BMS="d:~/Documents;D:~/Downloads;r:~/Downloads/repos;s:~/Downloads/Study"
-export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
-export NNN_PLUG="p:preview-tui;v:imgview"
-export NNN_FIFO="/tmp/nnn.fifo"
-export NNN_TRASH=1
-export CODE_DIR="~/Code"
-
-#
 # Aliases / Functions
 #
 
@@ -115,6 +96,6 @@ eval "$(starship init zsh)"
 
 # To remove the following ZSH plugins, remove the directory and
 # remove the reference of the plugin below
-source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
