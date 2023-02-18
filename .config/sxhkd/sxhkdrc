@@ -52,14 +52,6 @@ super + alt + a
 super + shift + s
     ~/.scripts/change-wallpaper.sh
 
-# rofi bookmarks prompt
-super + shift + b
-    ~/.scripts/bookmarks/bookmarks.py
-
-# add new bookmark
-super + shift + v
-    $TERMINAL -e ~/.scripts/bookmarks/add_bookmark.py
-
 # toggle dunst notification on and off
 super + shift + d
     polybar-msg hook notifications 2
