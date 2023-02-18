@@ -17,7 +17,6 @@ alias va='source ./venv/bin/activate'
 alias vd='deactivate'
 alias uppip='pip3 install --upgrade pip'
 alias vca='vc && va && uppip'
-alias vcai='vca && inst'
 
 # Interactive command aliases
 alias mv='mv -i'
