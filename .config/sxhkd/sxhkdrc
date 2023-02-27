@@ -110,7 +110,7 @@ super + alt + {q,r}
 
 # lock screen
 super + x
-    i3lock -i ~/Pictures/wallpapers/lock_screen
+    ~/.scripts/powermenu/lock.sh
 
 #
 # window shortcuts

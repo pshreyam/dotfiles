@@ -3,7 +3,7 @@
 res="$(printf " Lock\n Logout\n Shutdown\n Reboot" | rofi -no-default-config -dmenu -p "Power Menu ›" -i)"
 
 if [ "$res" == " Lock" ]; then
-    betterlockscreen -l blur
+    ~/.scripts/powermenu/lock.sh
 elif [ "$res" == " Logout" ]; then
     ~/.scripts/powermenu/logout.sh
 elif [ "$res" == " Shutdown" ]; then

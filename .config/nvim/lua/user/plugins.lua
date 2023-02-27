@@ -66,4 +66,10 @@ require('packer').startup(function(use)
         {'rafamadriz/friendly-snippets'}, -- Optional
       }
     }
+
+    use 'mfussenegger/nvim-dap'
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = {"mfussenegger/nvim-dap"}
+    }
 end)
