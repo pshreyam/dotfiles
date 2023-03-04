@@ -9,7 +9,7 @@ window:
   padding:
     x: 15
     y: 15
-  decorations: none
+    # decorations: none
   opacity: 1.0
 
 scrolling:
