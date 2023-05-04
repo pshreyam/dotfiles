@@ -5,10 +5,8 @@ function dotfiles() {
 
 # Clone remote repo inside the 'all' repos directory
 function clone() {
-    ret=$(pwd)
-    cd ~/Code/repos/all
-    git clone $1
-    cd $ret
+    dir_name=$(basename $1 .git)
+    git clone $1 ~/Code/repos/all/$dir_name
 }
 
 # Change directory into the selected active repository
