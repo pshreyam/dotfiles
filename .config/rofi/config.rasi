@@ -1,1 +1,88 @@
-@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+configuration {
+  display-drun: "App ›";
+  display-window: "Win ›";
+  display-run: "Run ›";
+  display-ssh: "SSH ›";
+  display-emoji: "Emoji ›";
+  show-icons: true;
+  drun-display-format: "{icon} {name}";
+  modi: ["window", "drun", "run", "ssh", "emoji", "filebrowser"];
+}
+
+* {
+  font: "CaskaydiaCove Nerd Font 12";
+  background-color: #000000CC;
+  foreground: #A0A8CD;
+  selected-text-color: #000000;
+  separator-color: @selected-text-color;
+  text-color: #CCCCCC;
+}
+
+window {
+  background-color: @background-color;
+  transparency: "real";
+  location: north;
+  y-offset: 15%;
+  height: 50%;
+  width: 35%;
+  border-radius: 20px;
+}
+
+mainbox {
+  background-color: transparent;
+  padding: 30px 30px 30px 30px;
+}
+
+inputbar {
+  background-color: transparent;
+  padding: 5px 10px 25px 10px;
+}
+
+prompt {
+  background-color: transparent;
+  /* text-color: #3346f2; */
+  padding: 0px 10px 0px 0px;
+}
+
+case-indicator {
+  background-color: transparent;
+  text-color: @text-color;
+}
+
+entry {
+  background-color: transparent;
+  text-color: @text-color;
+}
+
+listview {
+  background-color: transparent;
+  padding: 0px 5px 0px 5px;
+  spacing: 0.2em;
+  columns: 1;
+}
+
+element {
+  background-color: transparent;
+  padding: 5px 5px 5px 5px;
+}
+
+element-icon {
+  size: 30px;
+  border: 0px;
+  background-color: transparent;
+}
+
+element-text {
+  expand: true;
+  vertical-align: 0.5;
+  background-color: transparent;
+}
+
+element selected {
+  color: @selected-text-color;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #3346f2;
+}
+
+/* vim: ft=css
