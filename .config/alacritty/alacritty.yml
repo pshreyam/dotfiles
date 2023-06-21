@@ -104,7 +104,7 @@ schemes:
       cyan: "0x89b482"
       white: "0xdfbf8e"
 
-colors: *onedark
+colors: *gruvbox
 
 selection:
   save_to_clipboard: false
