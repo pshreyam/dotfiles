@@ -12,3 +12,4 @@ export NNN_PLUG="p:preview-tui;v:imgview"
 export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_TRASH=1
 export CODE_DIR="~/Code"
+. "$HOME/.cargo/env"

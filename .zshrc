@@ -83,19 +83,59 @@ if [ -e ~/.aliases ]; then
     . ~/.aliases
 fi
 
-# Load functions from ~/.functions file if present
-if [ -e ~/.functions ]; then
-    . ~/.functions
-fi
+# # Load functions from ~/.functions file if present
+# if [ -e ~/.functions ]; then
+#     . ~/.functions
+# fi
+
+# Manage dotfiles
+function dotfiles() {
+    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+}
 
 #
 # Initialize Starship Prompt
 #
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # To remove the following ZSH plugins, remove the directory and
 # remove the reference of the plugin below
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+#
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#
+# Pyenv config
+#
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+#
+# Source an env.sh file
+#
+
+# autoload -U add-zsh-hook
+
+# Define the function to source env.sh file
+# source_env_file() {
+#     local env_file="env.sh"
+#
+#     # Loop through each parent directory
+#     local current_dir=$PWD
+#     while [[ $current_dir != / ]]; do
+#         # Check if the env.sh file exists and is readable in the current directory
+#         if [[ -f "$current_dir/$env_file" && -r "$current_dir/$env_file" ]]; then
+#             source "$current_dir/$env_file"
+#             break
+#         fi
+#
+#         # Move to the parent directory
+#         current_dir=$(dirname "$current_dir")
+#     done
+# }
+
+# Hook the function to the chpwd event
+# add-zsh-hook chpwd source_env_file
