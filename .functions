@@ -1,7 +1,3 @@
-# Manage dotfiles
-function dotfiles() {
-    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
-}
 
 # Clone remote repo inside the 'all' repos directory
 function clone() {
@@ -39,4 +35,9 @@ function rfar() {
         rm ~/Code/repos/active/$reply
         echo "Successfully removed '$reply' from active repos!"
     fi
+}
+
+function message-discord() {
+    message="$@"
+    curl -X POST -H 'Content-type: application/json' -d "{\"content\": \"$message\", \"embeds\": null, \"attachments\": []}" $WEBHOOK_URL
 }
