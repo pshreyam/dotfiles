@@ -94,16 +94,35 @@ function dotfiles() {
 }
 
 #
-# Initialize Starship Prompt
+# Set custom prompt
 #
 
-# eval "$(starship init zsh)"
+# add %{%G<character>%} around non-ASCII characters
+export PROMPT='%B%F{171}%1~%f %{%G›%}%b '
 
-# To remove the following ZSH plugins, remove the directory and
-# remove the reference of the plugin below
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Set git branch name in the zsh prompt
+if [[ -f ~/.scripts/git-prompt.sh ]]; then
+    . ~/.scripts/git-prompt.sh
+    GIT_PS1_SHOWCOLORHINTS=1
+    GIT_PS1_SHOWDIRTYSTATE=1
+    # add %{%G<character>%} around non-ASCII characters
+    export PROMPT='%B%F{171}%1~%f $(__git_ps1 "on %s")%{%G›%}%b '
+fi
+
 #
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# New line before each new prompt except the first one
+#
+
+new_line_before_prompt=yes
+precmd() {
+    if [ "$new_line_before_prompt" = yes ]; then
+	    if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
+	        _NEW_LINE_BEFORE_PROMPT=1
+	    else
+	        print ""
+	    fi
+    fi
+}
 
 #
 # Pyenv config
