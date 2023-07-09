@@ -63,3 +63,24 @@ alias cat='bat'
 
 # Source env from shell script
 alias source_env='source /mnt/veracrypt1/env.sh'
+
+# Manage dotfiles
+function dotfiles() {
+    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+}
+
+# Change directory into the selected active repository
+function cr() {
+    reply=$(echo "$(/bin/ls -1 ~/Code/repos)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository To cd Into" --header-first --prompt="› " --pointer="➜")
+    if [[ -z $reply ]];then
+        echo "No repo selected!"
+    else
+        cd ~/Code/repos/$reply
+    fi
+}
+
+# Message to a particular webhook
+function message-webhook() {
+    message="$@"
+    curl -X POST -H 'Content-type: application/json' -d "{\"content\": \"$message\", \"embeds\": null, \"attachments\": []}" $WEBHOOK_URL
+}

@@ -83,21 +83,11 @@ if [ -e ~/.aliases ]; then
     . ~/.aliases
 fi
 
-# # Load functions from ~/.functions file if present
-# if [ -e ~/.functions ]; then
-#     . ~/.functions
-# fi
-
-# Manage dotfiles
-function dotfiles() {
-    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
-}
-
 #
 # Set custom prompt
 #
 
-# add %{%G<character>%} around non-ASCII characters
+# Add %{%G<character>%} around non-ASCII characters
 export PROMPT='%B%F{171}%1~%f %{%G›%}%b '
 
 # Set git branch name in the zsh prompt
@@ -110,51 +100,9 @@ if [[ -f ~/.scripts/git-prompt.sh ]]; then
 fi
 
 #
-# New line before each new prompt except the first one
-#
-
-new_line_before_prompt=yes
-precmd() {
-    if [ "$new_line_before_prompt" = yes ]; then
-	    if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
-	        _NEW_LINE_BEFORE_PROMPT=1
-	    else
-	        print ""
-	    fi
-    fi
-}
-
-#
-# Pyenv config
+# Configure pyenv
 #
 
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-#
-# Source an env.sh file
-#
-
-# autoload -U add-zsh-hook
-
-# Define the function to source env.sh file
-# source_env_file() {
-#     local env_file="env.sh"
-#
-#     # Loop through each parent directory
-#     local current_dir=$PWD
-#     while [[ $current_dir != / ]]; do
-#         # Check if the env.sh file exists and is readable in the current directory
-#         if [[ -f "$current_dir/$env_file" && -r "$current_dir/$env_file" ]]; then
-#             source "$current_dir/$env_file"
-#             break
-#         fi
-#
-#         # Move to the parent directory
-#         current_dir=$(dirname "$current_dir")
-#     done
-# }
-
-# Hook the function to the chpwd event
-# add-zsh-hook chpwd source_env_file
