@@ -59,7 +59,7 @@ alias csu='python3 manage.py createsuperuser'
 # Replacement program aliases
 alias ls='exa --icons --group-directories-first'
 alias tree='exa --tree --icons'
-alias cat='bat'
+alias cat='bat -p'
 
 # Source env from shell script
 alias source_env='source /mnt/veracrypt1/env.sh'
