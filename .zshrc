@@ -86,18 +86,7 @@ fi
 #
 # Set custom prompt
 #
-
-# Add %{%G<character>%} around non-ASCII characters
-export PROMPT='%B%F{171}%1~%f %{%G›%}%b '
-
-# Set git branch name in the zsh prompt
-if [[ -f ~/.scripts/git-prompt.sh ]]; then
-    . ~/.scripts/git-prompt.sh
-    GIT_PS1_SHOWCOLORHINTS=1
-    GIT_PS1_SHOWDIRTYSTATE=1
-    # add %{%G<character>%} around non-ASCII characters
-    export PROMPT='%B%F{171}%1~%f $(__git_ps1 "on %s")%{%G›%}%b '
-fi
+eval $(starship init zsh)
 
 #
 # Configure pyenv
