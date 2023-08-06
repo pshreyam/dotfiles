@@ -83,6 +83,8 @@ if [ -e ~/.aliases ]; then
     . ~/.aliases
 fi
 
+source_env
+
 #
 # Set custom prompt
 #
