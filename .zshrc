@@ -52,6 +52,37 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 #
+# Set custom prompt
+#
+
+# add %{%G<character>%} around non-ASCII characters
+export PROMPT='%B%F{171}%1~%f %{%G›%}%b '
+
+# Set git branch name in the zsh prompt
+if [[ -f ~/.scripts/git-prompt.sh ]]; then
+    . ~/.scripts/git-prompt.sh
+    GIT_PS1_SHOWCOLORHINTS=1
+    GIT_PS1_SHOWDIRTYSTATE=1
+    # add %{%G<character>%} around non-ASCII characters
+    export PROMPT='%B%F{171}%1~%f $(__git_ps1 "on %s")%{%G›%}%b '
+fi
+
+#
+# New line before each new prompt except the first one
+#
+
+new_line_before_prompt=yes
+precmd() {
+    if [ "$new_line_before_prompt" = yes ]; then
+	    if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
+	        _NEW_LINE_BEFORE_PROMPT=1
+	    else
+	        print ""
+	    fi
+    fi
+}
+
+#
 # Custom keybindings
 #
 
@@ -84,11 +115,6 @@ if [ -e ~/.aliases ]; then
 fi
 
 source_env
-
-#
-# Set custom prompt
-#
-eval $(starship init zsh)
 
 #
 # Configure pyenv
