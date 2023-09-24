@@ -17,10 +17,16 @@ set.expandtab = true
 set.termguicolors = true
 set.background = "dark"
 
-set.completeopt = {"menuone", "noinsert"}
+set.completeopt = { "menuone", "noinsert" }
 set.list = false
-set.listchars = { tab = ">-", trail = "~", extends = ">",
-            precedes = "<", space = "", eol = "↲"}
+set.listchars = {
+    tab = ">-",
+    trail = "~",
+    extends = ">",
+    precedes = "<",
+    space = ".",
+    eol = "↲"
+}
 
 set.hlsearch = true
 set.incsearch = true
@@ -56,11 +62,11 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.lua :%s/\s\+$//e
 ]])
 
-vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
-  group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
-  callback = function()
-    vim.opt.foldmethod = 'expr'
-    vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-    vim.opt.foldenable = false
-  end
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'BufWinEnter' }, {
+    group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
+    callback = function()
+        vim.opt.foldmethod = 'expr'
+        vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
+        vim.opt.foldenable = false
+    end
 })

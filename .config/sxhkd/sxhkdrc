@@ -112,6 +112,9 @@ super + alt + {q,r}
 super + x
     ~/.scripts/powermenu/lock.sh
 
+super + shift + p
+    ~/.scripts/powermenu/powermenu.sh
+
 #
 # window shortcuts
 #

@@ -1,5 +1,5 @@
 local map = vim.api.nvim_set_keymap
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
 vim.g.mapleader = ','
 
@@ -31,7 +31,6 @@ map('n', '<leader>vv', ':windo wincmd H', opts)
 map('n', '<leader>n', ':bn<CR>:echo expand("%:p")<CR>', opts)
 map('n', '<leader>N', ':bp<CR>:echo expand("%:p")<CR>', opts)
 
--- map Alt+j and Alt+k to move lines down and up
 map('n', '<A-j>', ':m .+1<CR>==', opts)
 map('n', '<A-k>', ':m .-2<CR>==', opts)
 map('i', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
