@@ -2,7 +2,7 @@
 
 # Kill existing processes
 pkill sxhkd
-pkill picom
+# pkill picom
 pkill polybar
 pkill nm-applet
 pkill dunst
@@ -11,7 +11,7 @@ pkill xfce4-clipman
 
 # Start processes and applets
 sxhkd &
-picom &
+# picom &
 $HOME/.config/polybar/launch.sh &
 nm-applet &
 dunst &
