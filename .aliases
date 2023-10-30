@@ -36,6 +36,7 @@ alias cali="$EDITOR ~/.aliases"
 alias cfunc="$EDITOR ~/.functions"
 alias cz="$EDITOR ~/.zshrc"
 alias calac="$EDITOR ~/.config/alacritty/alacritty.yml"
+alias ctmx="$EDITOR ~/.config/tmux/tmux.conf"
 alias bm="$EDITOR ~/.scripts/bookmarks/bookmarks.json"
 
 # Aliases
