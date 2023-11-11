@@ -49,7 +49,7 @@ set.colorcolumn = "80"
 set.showmode = false
 set.laststatus = 3
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme onedark")
 
 vim.cmd([[
 autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
