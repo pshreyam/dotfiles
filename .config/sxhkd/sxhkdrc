@@ -68,6 +68,9 @@ alt + Tab
 super + @space
     rofi -no-default-config -show drun -modi drun,run
 
+super + r
+    rofi -no-default-config -show drun -modi drun,run
+
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd

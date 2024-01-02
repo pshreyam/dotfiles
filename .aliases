@@ -35,9 +35,10 @@ alias cnvi="$EDITOR ~/.config/nvim/init.lua"
 alias cali="$EDITOR ~/.aliases"
 alias cfunc="$EDITOR ~/.functions"
 alias cz="$EDITOR ~/.zshrc"
-alias calac="$EDITOR ~/.config/alacritty/alacritty.yml"
+alias calac="$EDITOR ~/.config/alacritty/alacritty.toml"
 alias ctmx="$EDITOR ~/.config/tmux/tmux.conf"
 alias bm="$EDITOR ~/.scripts/bookmarks/bookmarks.json"
+alias chy="$EDITOR ~/.config/hypr/hyprland.conf"
 
 # Aliases
 alias vi=$EDITOR

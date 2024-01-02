@@ -1,0 +1,65 @@
+live_config_reload = true
+
+[shell]
+program = "/usr/bin/zsh"
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+title = "Alacritty"
+decorations_theme_variant = "Dark"
+opacity = 1.0
+padding = { x = 5, y = 0 }
+dynamic_padding = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "0x928374"
+blue = "0x7daea3"
+cyan = "0x89b482"
+green = "0xa9b665"
+magenta = "0xd3869b"
+red = "0xea6962"
+white = "0xdfbf8e"
+yellow = "0xe3a84e"
+
+[colors.normal]
+black = "0x665c54"
+blue = "0x7daea3"
+cyan = "0x89b482"
+green = "0xa9b665"
+magenta = "0xd3869b"
+red = "0xea6962"
+white = "0xdfbf8e"
+yellow = "0xe78a4e"
+
+[colors.primary]
+background = "0x282828"
+foreground = "0xdfbf8e"
+
+[font]
+normal = { family = "JetBrains Mono Nerd Font", style = "Medium" }
+bold = { family = "JetBrains Mono Nerd Font", style = "Bold" }
+bold_italic = { family = "JetBrains Mono Nerd Font", style = "Bold Italic" }
+italic = { family = "JetBrains Mono Nerd Font", style = "Medium Italic" }
+size = 10
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "fzf \r"
+key = "H"
+mods = "Control|Shift"
+
+[scrolling]
+history = 10000
+multiplier = 10
+
+[selection]
+save_to_clipboard = false
