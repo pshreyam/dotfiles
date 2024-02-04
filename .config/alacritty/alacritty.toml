@@ -10,7 +10,7 @@ TERM = "xterm-256color"
 title = "Alacritty"
 decorations_theme_variant = "Dark"
 opacity = 1.0
-padding = { x = 5, y = 0 }
+padding = { x = 15, y = 15 }
 dynamic_padding = true
 
 [colors]
@@ -45,7 +45,7 @@ normal = { family = "JetBrains Mono Nerd Font", style = "Medium" }
 bold = { family = "JetBrains Mono Nerd Font", style = "Bold" }
 bold_italic = { family = "JetBrains Mono Nerd Font", style = "Bold Italic" }
 italic = { family = "JetBrains Mono Nerd Font", style = "Medium Italic" }
-size = 10
+size = 9
 
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
