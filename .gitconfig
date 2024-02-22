@@ -1,0 +1,24 @@
+[user]
+    name = Shreyam Pokharel
+
+[commit]
+    gpgsign = true
+
+[init]
+    defaultBranch = main
+
+[alias]
+    st = status
+    sf = status -s
+    d  = diff
+    ds = diff --staged
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[push]
+    autoSetupRemote = true
+
+[includeIf "gitdir:~/"]
+    path = ~/.gitconfig-personal
+
+[includeIf "gitdir:~/Work/"]
+    path = ~/.gitconfig-work
