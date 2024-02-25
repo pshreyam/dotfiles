@@ -59,6 +59,7 @@ alias mm='python3 manage.py makemigrations'
 alias csu='python3 manage.py createsuperuser'
 
 # Replacement program aliases
+alias ls="eza"
 alias cat='bat -p'
 alias docker='podman'
 
