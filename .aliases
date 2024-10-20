@@ -61,7 +61,6 @@ alias csu='python3 manage.py createsuperuser'
 # Replacement program aliases
 alias ls="eza"
 alias cat='bat -p'
-alias docker='podman'
 
 # Source env from shell script
 alias source_env='source ~/Work/env.sh'
@@ -71,14 +70,36 @@ function dotfiles() {
     /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
-# Change directory into the selected active repository
+# Change directory into the selected repository
 function cr() {
-    reply=$(echo "$(/bin/ls -1 ~/Code/repos)" | fzf --border=rounded --height=50% --layout=reverse --header="Choose Repository To cd Into" --header-first --prompt="› " --pointer="➜")
-    if [[ -z $reply ]];then
-        echo "No repo selected!"
-    else
-        cd ~/Code/repos/$reply
+    # Define folders to choose from
+    folders_to_choose=$(echo "~/Work/repos\n~/Code/repos")
+
+    # Select a folder using fzf
+    folder=$(echo "$folders_to_choose" | fzf --border=rounded --height=50% --layout=reverse --header="Choose a folder to find repositories" --header-first --prompt="› " --pointer="➜")
+
+    # If no folder is chosen, exit the function
+    if [[ -z $folder ]]; then
+        echo "No folder chosen."
+        return 0
     fi
+
+    echo "The chosen folder is $folder."
+
+    folder=$(eval echo $folder)
+    # List repositories and select one using fzf
+    reply=$(ls -1 $folder | fzf --border=rounded --height=50% --layout=reverse --header="Choose a repository to cd into" --header-first --prompt="› " --pointer="➜")
+
+    # If no repository is chosen, exit the function
+    if [[ -z $reply ]]; then
+        echo "No repository selected."
+        return 0
+    fi
+
+    echo "Changed directory to $folder/$reply."
+
+    # Change directory to the chosen repository
+    cd "$folder/$reply"
 }
 
 # Message to a particular webhook

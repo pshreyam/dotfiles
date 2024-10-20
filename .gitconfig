@@ -2,7 +2,7 @@
     name = Shreyam Pokharel
 
 [commit]
-    gpgsign = true
+    gpgsign = false
 
 [init]
     defaultBranch = main
@@ -13,6 +13,9 @@
     d  = diff
     ds = diff --staged
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[pull]
+    rebase = false
 
 [push]
     autoSetupRemote = true
