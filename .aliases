@@ -42,7 +42,7 @@ alias chy="$EDITOR ~/.config/hypr/hyprland.conf"
 
 # Aliases
 alias vi=$EDITOR
-alias nnn='/usr/bin/nnn -de'
+alias nnn='nnn -de'
 alias trash='send2trash'
 
 # Directory navigation (go to directory) aliases
@@ -67,7 +67,7 @@ alias source_env='source ~/Work/env.sh'
 
 # Manage dotfiles
 function dotfiles() {
-    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
 # Change directory into the selected repository
