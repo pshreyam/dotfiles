@@ -8,6 +8,8 @@
     defaultBranch = main
 
 [alias]
+    co = checkout
+    ci = commit
     st = status
     sf = status -s
     d  = diff
