@@ -9,11 +9,12 @@
 
 [alias]
     co = checkout
-    ci = commit
+    cm = commit
     st = status
     sf = status -s
     d  = diff
     ds = diff --staged
+    l = log --oneline
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 [pull]
@@ -21,6 +22,12 @@
 
 [push]
     autoSetupRemote = true
+
+[grep]
+    lineNumber = true
+
+[rerere]
+    enabled = true
 
 [includeIf "gitdir:~/"]
     path = ~/.gitconfig-personal
