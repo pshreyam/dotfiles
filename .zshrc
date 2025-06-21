@@ -93,14 +93,6 @@ fi
 source_env
 
 #
-# Configure pyenv
-#
-
-# export PATH="$HOME/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
-#
 # Configure gcloud cli
 #
 
