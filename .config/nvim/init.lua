@@ -1,5 +1,8 @@
-require('user.plugins')
+-- Configure plugins
+require('config.plugins')
 
-require('user.settings')
+-- Configure basic editor settings
+require('config.settings')
 
-require('user.mappings')
+-- Configure key bindings
+require('config.mappings')

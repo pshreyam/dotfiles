@@ -79,5 +79,10 @@ require('packer').startup(function(use)
         run = function() vim.fn['mkdp#util#install']() end,
     }
 
-    use 'lewis6991/gitsigns.nvim'
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
 end)
