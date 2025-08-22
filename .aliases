@@ -11,13 +11,6 @@ alias history="history 0" # force zsh to show the complete history
 alias ll='ls -alF'
 alias la='ls -a'
 
-# Python aliases
-alias vc='python3 -m venv venv'
-alias va='source ./venv/bin/activate'
-alias vd='deactivate'
-alias uppip='pip3 install --upgrade pip'
-alias vca='vc && va && uppip'
-
 # Interactive command aliases
 alias mv='mv -i'
 alias cp='cp -i'
@@ -33,7 +26,6 @@ alias crof="$EDITOR ~/.config/rofi/config.rasi"
 alias czat="$EDITOR ~/.config/zathura/zathurarc"
 alias cnvi="$EDITOR ~/.config/nvim/init.lua"
 alias cali="$EDITOR ~/.aliases"
-alias cfunc="$EDITOR ~/.functions"
 alias cz="$EDITOR ~/.zshrc"
 alias calac="$EDITOR ~/.config/alacritty/alacritty.toml"
 alias ctmx="$EDITOR ~/.config/tmux/tmux.conf"
@@ -52,12 +44,6 @@ alias gdn='cd ~/Downloads'
 alias gco="cd $CODE_DIR"
 alias gr="cd $CODE_DIR/repos"
 
-# Django aliases
-alias rs='python3 manage.py runserver'
-alias mi='python3 manage.py migrate'
-alias mm='python3 manage.py makemigrations'
-alias csu='python3 manage.py createsuperuser'
-
 # Replacement program aliases
 alias ls="eza"
 alias cat='bat -p'
@@ -70,36 +56,64 @@ function dotfiles() {
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
-# Change directory into the selected repository
 function cr() {
-    # Define folders to choose from
-    folders_to_choose=$(echo "~/Work/repos\n~/Code/repos")
+    # Define base folders to search for repositories
+    base_folders=(~/Work/repos ~/Code/repos)
 
-    # Select a folder using fzf
-    folder=$(echo "$folders_to_choose" | fzf --border=rounded --height=50% --layout=reverse --header="Choose a folder to find repositories" --header-first --prompt="› " --pointer="➜")
+    # Find all git repositories recursively (max depth 3)
+    repos=()
+    for folder in "${base_folders[@]}"; do
+        # Expand the folder path
+        folder=$(eval echo "$folder")
 
-    # If no folder is chosen, exit the function
-    if [[ -z $folder ]]; then
-        echo "No folder chosen."
+        # Check if folder exists
+        if [[ -d "$folder" ]]; then
+            # Find directories containing .git folder, max depth 3
+            while IFS= read -r repo; do
+                repos+=("$repo")
+            done < <(find "$folder" -maxdepth 3 -type d -name ".git" 2>/dev/null | sed 's|/\.git$||' | sort)
+        fi
+    done
+
+    # Check if any repositories were found
+    if [[ ${#repos[@]} -eq 0 ]]; then
+        echo "No git repositories found."
         return 0
     fi
 
-    echo "The chosen folder is $folder."
+    # Create a formatted list for fzf
+    # Show relative paths from home directory for better readability
+    formatted_repos=()
+    for repo in "${repos[@]}"; do
+        # Replace home directory with ~
+        formatted_repo="${repo/#$HOME/~}"
+        formatted_repos+=("$formatted_repo")
+    done
 
-    folder=$(eval echo $folder)
-    # List repositories and select one using fzf
-    reply=$(ls -1 $folder | fzf --border=rounded --height=50% --layout=reverse --header="Choose a repository to cd into" --header-first --prompt="› " --pointer="➜")
+    # Use fzf to select a repository
+    selected=$(printf '%s\n' "${formatted_repos[@]}" | fzf \
+        --border=rounded \
+        --height=50% \
+        --layout=reverse \
+        --header="Choose a git repository" \
+        --header-first \
+        --prompt="› " \
+        --pointer="➜" \
+        --preview='echo "📁 Repository: {}" && echo "" && ls -la $(eval echo {}) 2>/dev/null | head -20')
 
     # If no repository is chosen, exit the function
-    if [[ -z $reply ]]; then
+    if [[ -z $selected ]]; then
         echo "No repository selected."
         return 0
     fi
 
-    echo "Changed directory to $folder/$reply."
+    # Expand the selected path (convert ~ back to $HOME)
+    selected_path=$(eval echo "$selected")
+
+    echo "Changed directory to $selected_path"
 
     # Change directory to the chosen repository
-    cd "$folder/$reply"
+    cd "$selected_path"
 }
 
 # Message to a particular webhook
