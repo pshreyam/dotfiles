@@ -1,8 +1,6 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = ' '
-
 map('n', '<leader>t', ':NvimTreeToggle<CR>', opts)
 map('n', '<leader>w', ':set list!<CR>', opts)
 map('n', '<leader>e', ':edit ~/.config/nvim/init.lua<CR>', opts)
@@ -41,3 +39,4 @@ map('v', '<A-k>', ":m '<-2<CR>gv=gv", opts)
 map('t', '<leader><Esc>', ':<C-\\><C-n>', opts)
 
 map('n', '<Esc><Esc>', ':noh<CR>', opts)
+

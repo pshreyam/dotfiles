@@ -1,5 +1,8 @@
--- Configure plugins
-require('config.plugins')
+-- Configure some defaults
+require("config.globals")
+
+-- Configure lazy
+require("config.lazy")
 
 -- Configure basic editor settings
 require('config.settings')

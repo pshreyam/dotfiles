@@ -44,12 +44,12 @@ set.scrolloff = 4
 set.wrap = true
 set.cursorline = true
 set.signcolumn = "yes"
-set.colorcolumn = "80"
+set.colorcolumn = "100"
 
 set.showmode = false
 set.laststatus = 3
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme onedark")
 
 vim.cmd([[
 autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
@@ -70,3 +70,4 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'Buf
         vim.opt.foldenable = false
     end
 })
+
