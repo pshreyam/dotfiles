@@ -48,6 +48,7 @@ set.colorcolumn = "100"
 
 set.showmode = false
 set.laststatus = 3
+set.cmdheight = 0
 
 vim.cmd("colorscheme onedark")
 
