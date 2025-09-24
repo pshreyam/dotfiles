@@ -5,7 +5,13 @@ require("config.globals")
 require("config.lazy")
 
 -- Configure basic editor settings
-require('config.settings')
+require("config.settings")
+
+-- Configure autocommands
+require("config.autocmds")
 
 -- Configure key bindings
-require('config.mappings')
+require("config.mappings")
+
+-- Configure LSP
+require("config.lsp")

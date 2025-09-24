@@ -19,12 +19,8 @@ vim.opt.rtp:prepend(lazypath)
 -- loading lazy.nvim so that mappings are correct.
 
 -- Setup lazy.nvim
-require("lazy").setup(
-    "plugins",
-    {
-        change_detection = {
-            notify = false
-        },
-    }
-)
-
+require("lazy").setup("plugins", {
+  change_detection = {
+    notify = false,
+  },
+})
