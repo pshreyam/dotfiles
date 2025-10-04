@@ -2,6 +2,8 @@
 vim.lsp.enable({
   "luals",
   "pyright",
+  "rust_analyzer",
+  "gopls",
 })
 
 -- Configure diagnostics
